@@ -72,13 +72,24 @@ body {
 
 section {
     display:flex;
-    justify-content:flex-end;
-    flex-direction:column;
     grid-gap: 1rem;
+}
+
+section main {
+    flex-direction:column;
+    text-align:center;
 }
 
 section main article {
     background:grey;
     padding:1rem;
     margin-bottom: 1rem;
+}
+
+footer {
+    height:100px;
+    background-color:black;
+    color:white;
+    display:flex;
+    grid-gap:1rem;
 }

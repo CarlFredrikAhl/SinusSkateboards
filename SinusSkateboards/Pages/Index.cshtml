@@ -6,14 +6,21 @@
 
 <div class="wrapper">
     <section>
-    <h1 class="display-4">Products</h1>
-        @foreach (var product in Model.Products)
-        {
-        <article style="background:grey">
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi accusantium debitis numquam fugit dolores ab, harum facilis earum recusandae laborum laboriosam dicta corporis possimus, ea veritatis totam ducimus voluptate illum.</p>
-            <p>Reprehenderit, iusto consectetur ipsa fugiat animi nulla fugit sunt enim? Recusandae temporibus, ipsam unde eligendi illum magni, modi consequatur fugit dolorem iure perspiciatis? Earum dignissimos, obcaecati tenetur voluptatem nam velit!</p>
-            <p>Aliquid, aperiam a dolorum modi id quasi ad fugit minima saepe harum at facere obcaecati accusamus labore! Iste, maxime perspiciatis tenetur neque distinctio laborum, optio voluptate modi natus, accusamus fugit.</p>
-        </article>
-        }
+        <main>
+            <h1 class="display-4">Products</h1>
+            @foreach (var product in Model.Products)
+            {
+                <article style="background:grey">
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi accusantium debitis numquam fugit dolores ab, harum facilis earum recusandae laborum laboriosam dicta corporis possimus, ea veritatis totam ducimus voluptate illum.</p>
+                    <p>Reprehenderit, iusto consectetur ipsa fugiat animi nulla fugit sunt enim? Recusandae temporibus, ipsam unde eligendi illum magni, modi consequatur fugit dolorem iure perspiciatis? Earum dignissimos, obcaecati tenetur voluptatem nam velit!</p>
+                    <p>Aliquid, aperiam a dolorum modi id quasi ad fugit minima saepe harum at facere obcaecati accusamus labore! Iste, maxime perspiciatis tenetur neque distinctio laborum, optio voluptate modi natus, accusamus fugit.</p>
+                </article>
+            }
+        </main>
+
+        <aside>
+            <a>T-shirts</a>
+            <a>Hoodies</a>
+        </aside>
     </section>
 </div>
