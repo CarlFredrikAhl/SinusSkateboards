@@ -5,21 +5,44 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using SinusSkateboards.Database;
+using SinusSkateboards.Models;
 
 namespace SinusSkateboards.Pages
 {
+    [BindProperties]
     public class IndexModel : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
+        private readonly AppDbContext database;
 
-        public IndexModel(ILogger<IndexModel> logger)
+        public List<ProductModel> Products { get; set; }
+
+        public IndexModel(AppDbContext context)
         {
-            _logger = logger;
+            database = context;
         }
 
         public void OnGet()
         {
+            //Add the products to the database if there are no ones already
+            if (!database.Products.Any())
+            {
+                Products = new List<ProductModel>()
+                {
+                    new ProductModel(),
+                    new ProductModel(),
+                    new ProductModel(),
+                    new ProductModel(),
+                    new ProductModel(),
+                };
 
+                //foreach (var product in Products)
+                //{
+                //    database.Products.Add(product);
+                //}
+
+                //database.SaveChanges();
+            }
         }
     }
 }
