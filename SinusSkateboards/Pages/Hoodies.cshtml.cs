@@ -23,7 +23,7 @@ namespace SinusSkateboards.Pages
         public void OnGet()
         {
             //Add the products to the database if there are no ones already
-            if (!database.Products.Any())
+            if (database.Products.Where(product => product.Title.Contains("Hoodie")).ToList().Count == 0)
             {
                 Products = new List<ProductModel>()
                 {
@@ -39,12 +39,16 @@ namespace SinusSkateboards.Pages
                     , "Purple", 35),
                 };
 
-                //foreach (var product in Products)
-                //{
-                //    database.Products.Add(product);
-                //}
+                foreach (var product in Products)
+                {
+                    database.Products.Add(product);
+                }
 
-                //database.SaveChanges();
+                database.SaveChanges();
+            
+            } else
+            {
+                Products = database.Products.Where(product => product.Title.Contains("Hoodie")).ToList();
             }
         }
     }
