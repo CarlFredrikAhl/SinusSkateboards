@@ -80,7 +80,7 @@ body {
 
 header {
     background: #323432;
-    height: 200px;
+    height: 100px;
     color: white;
     display: flex;
     justify-content: flex-end;
@@ -88,10 +88,10 @@ header {
     font-size: 20px;
 }
 
-    header h1 {
-        margin: 2rem;
-        font-size: 2em;
-    }
+header h1 {
+    margin: 2rem;
+    font-size: 2em;
+}
 
 nav {
     background-color: #999;
@@ -149,19 +149,9 @@ section aside {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2rem;
+    grid-gap: 2rem;
     padding: 1rem 0;
-}
-
-section aside > article {
-    max-width: 80%;
-    width: 100%;
-    background: #222;
-    height: 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #eee;
+    margin-bottom:1rem;
 }
 
 section.gallery {
