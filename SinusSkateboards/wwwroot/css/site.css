@@ -124,7 +124,7 @@ section main {
 }
 
 section main article {
-    background: white;
+    background: #ddd;
     padding: 1rem;
     margin-bottom: 1rem;
 }
@@ -227,12 +227,6 @@ footer {
 footer > article {
     flex: 1;
     padding: 1rem;
-}
-
-section main article {
-    background: grey;
-    padding: 1rem;
-    margin-bottom: 1rem;
 }
 
 footer {
