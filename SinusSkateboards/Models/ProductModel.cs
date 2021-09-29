@@ -13,7 +13,6 @@ namespace SinusSkateboards.Models
         public string Img { get; }
         public string Image { get; set; }
         public string Title { get; set; }
-        public string Desc { get; }
         public string Description { get; set; }
         public string Color { get; set; }
         public int Price { get; set; }
@@ -25,7 +24,7 @@ namespace SinusSkateboards.Models
         {
             Img = img;
             Title = title;
-            Desc = desc;
+            Description = desc;
             Color = color;
             Price = price;
         }

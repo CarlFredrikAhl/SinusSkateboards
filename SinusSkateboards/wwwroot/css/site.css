@@ -219,7 +219,7 @@ section.gallery > article h3, section.gallary > article p {
     padding: 1rem 2rem;
 }
 
-footer {
+/*footer {
     height: 300px;
     background-color: #222;
     background-image: url(Margaret_Hamilton_1995.jpg);
@@ -227,7 +227,7 @@ footer {
     color: white;
     display: flex;
     gap: 1rem;
-}
+}*/
 
 footer > article {
     flex: 1;
@@ -236,11 +236,11 @@ footer > article {
 
 footer {
     height: 100px;
-    width:80%;
+    /*width:80%;*/
     display:flex;
     background-color: black;
     color: white;
-    position:fixed;
-    bottom:0;
+    /*position:fixed;
+    bottom:0;*/
     grid-gap: 1rem;
 }
