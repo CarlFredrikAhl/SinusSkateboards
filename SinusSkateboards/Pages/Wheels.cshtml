@@ -1,5 +1,5 @@
 ﻿@page
-@model SinusSkateboards.Pages.BoardsModel
+@model SinusSkateboards.Pages.WheelsModel
 @{
 }
 
@@ -20,7 +20,7 @@
     </nav>
     <section>
         <main>
-            @foreach (var product in Model.Products.Where(product => product.Title.Contains("Skateboard")))
+            @foreach (var product in Model.Products.Where(product => product.Title.Contains("Wheel")))
             {
                 <article>
                     <img src="~/imgs/products/@product.Image" style="max-width:100px">
