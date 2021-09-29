@@ -135,13 +135,17 @@ section main {
 
 section main article {
     background: #ddd;
-    padding: 3rem;
+    padding: 1rem;
     margin-bottom: 1rem;
     text-align:center;
 }
 
 section main article img {
     width: 80%;
+}
+
+section main article h2 {
+    padding-top:1rem;
 }
 
 section aside {
