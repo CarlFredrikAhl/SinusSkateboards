@@ -4,37 +4,38 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="wrapper">
-    <div class="wrapper">
-        <header>
-            <h1>
+<div class="wrapper2">
+    <header>
+        <h1>
             Sinus Skateboards
-            <img src="~/imgs/logos/sinus-logo-landscape -  small.png"/>
-            </h1>
-        </header>
-        <nav>
-            <a href="">Home</a>
+            <img src="~/imgs/logos/sinus-logo-landscape -  small.png" />
+        </h1>
+    </header>
+    <nav>
+        <a href="/Index">Home</a>
+        <a href="/Privacy">
             <span class="material-icons-outlined">
                 shopping_cart
             </span>
-        </nav>
-        <section>
-            <main>
-                @foreach (var product in Model.Products)
-                {
-                    <img src="https://source.unsplash.com/random/800x400" alt="">
-                    <h2>Jätteintressant rubrik 1</h2>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi accusantium debitis numquam fugit dolores ab, harum facilis earum recusandae laborum laboriosam dicta corporis possimus, ea veritatis totam ducimus voluptate illum.</p>
-                    <p>Reprehenderit, iusto consectetur ipsa fugiat animi nulla fugit sunt enim? Recusandae temporibus, ipsam unde eligendi illum magni, modi consequatur fugit dolorem iure perspiciatis? Earum dignissimos, obcaecati tenetur voluptatem nam velit!</p>
-                    <p>Aliquid, aperiam a dolorum modi id quasi ad fugit minima saepe harum at facere obcaecati accusamus labore! Iste, maxime perspiciatis tenetur neque distinctio laborum, optio voluptate modi natus, accusamus fugit.</p>
-                }
-            </main>
-            <aside>
-                <p>Clothes</p>
-                <p>Skateboarding</p>
-            </aside>
-        </section>
-        @*<section class="gallery">
+        </a>
+    </nav>
+    <section>
+        <main>
+            @foreach (var product in Model.Products)
+            {
+                <img src="https://source.unsplash.com/random/800x400" alt="">
+                <h2>Jätteintressant rubrik 1</h2>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi accusantium debitis numquam fugit dolores ab, harum facilis earum recusandae laborum laboriosam dicta corporis possimus, ea veritatis totam ducimus voluptate illum.</p>
+                <p>Reprehenderit, iusto consectetur ipsa fugiat animi nulla fugit sunt enim? Recusandae temporibus, ipsam unde eligendi illum magni, modi consequatur fugit dolorem iure perspiciatis? Earum dignissimos, obcaecati tenetur voluptatem nam velit!</p>
+                <p>Aliquid, aperiam a dolorum modi id quasi ad fugit minima saepe harum at facere obcaecati accusamus labore! Iste, maxime perspiciatis tenetur neque distinctio laborum, optio voluptate modi natus, accusamus fugit.</p>
+            }
+        </main>
+        <aside>
+            <p>Clothes</p>
+            <p>Skateboarding</p>
+        </aside>
+    </section>
+    @*<section class="gallery">
             <article>
                 <img src="https://source.unsplash.com/random/400x300" alt="">
                 <h3>Påhittad rubrik</h3>
@@ -54,10 +55,9 @@
                 <a href="" class="btn large alert">Buy me!</a>
             </article>
         </section>*@
-        <footer>
-            <article>art 1</article>
-            <article>art 2</article>
-            <article>art 3</article>
-        </footer>
-    </div>
+    <footer>
+        <article>art 1</article>
+        <article>art 2</article>
+        <article>art 3</article>
+    </footer>
 </div>

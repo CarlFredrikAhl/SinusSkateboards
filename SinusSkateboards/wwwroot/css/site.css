@@ -73,8 +73,8 @@ body {
     margin: 0;
 }
 
-.wrapper {
-    max-width: 1000px;
+.wrapper2 {
+    max-width:80% !important;
     margin: 0 auto;
 }
 
@@ -119,7 +119,8 @@ section {
 }
 
 section main {
-    flex: 3;
+    width:800px;
+    flex:3;
 }
 
 section main article {
@@ -134,7 +135,7 @@ section main article img {
 
 section aside {
     background-color: #ddd;
-    width: 260px;
+    width: 300px;
     display: flex;
     flex-direction: column;
     align-items: center;
