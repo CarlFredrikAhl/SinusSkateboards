@@ -10,7 +10,6 @@ namespace SinusSkateboards.Models
     {
         [Key]
         public int ProductId { get; set; } //Primary key
-        public string Img { get; }
         public string Image { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
@@ -22,7 +21,7 @@ namespace SinusSkateboards.Models
         public ProductModel(string img, string title, string desc,
             string color, int price)
         {
-            Img = img;
+            Image = img;
             Title = title;
             Description = desc;
             Color = color;

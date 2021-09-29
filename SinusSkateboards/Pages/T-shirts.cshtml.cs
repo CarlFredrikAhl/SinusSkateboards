@@ -27,16 +27,16 @@ namespace SinusSkateboards.Pages
             {
                 Products = new List<ProductModel>()
                 {
-                    new ProductModel("~/imgs/products/sinus-tshirt-blue.png", "T-shirt (blue)", "Blue skate t-shirt"
-                    , "Blue", 50),
-                    new ProductModel("~/imgs/products/sinus-tshirt-grey.png", "T-shirt (grey)", "Grey skate t-shirt"
-                    , "Blue", 50),
-                    new ProductModel("~/imgs/products/sinus-tshirt-pink.png", "T-shirt (pink)", "Pink skate t-shirt"
-                    , "Blue", 50),
-                    new ProductModel("~/imgs/products/sinus-tshirt-purple.png", "T-shirt (purple)", "Purple skate t-shirt"
-                    , "Blue", 50),
-                    new ProductModel("~/imgs/products/sinus-tshirt-yellow.png", "T-shirt (yellow)", "Yellow skate t-shirt"
-                    , "Blue", 50),
+                    new ProductModel("sinus-tshirt-blue.png", "T-shirt (blue)", "Blue skate t-shirt"
+                    , "Blue", 15),
+                    new ProductModel("sinus-tshirt-grey.png", "T-shirt (grey)", "Grey skate t-shirt"
+                    , "Blue", 15),
+                    new ProductModel("sinus-tshirt-pink.png", "T-shirt (pink)", "Pink skate t-shirt"
+                    , "Blue", 15),
+                    new ProductModel("sinus-tshirt-purple.png", "T-shirt (purple)", "Purple skate t-shirt"
+                    , "Blue", 15),
+                    new ProductModel("sinus-tshirt-yellow.png", "T-shirt (yellow)", "Yellow skate t-shirt"
+                    , "Blue", 15),
                 };
 
                 //foreach (var product in Products)
