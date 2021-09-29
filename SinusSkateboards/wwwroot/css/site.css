@@ -140,7 +140,7 @@ section main article {
 }
 
 section main article img {
-    width: 100%;
+    width: 80%;
 }
 
 section aside {
@@ -231,8 +231,11 @@ footer > article {
 
 footer {
     height: 100px;
+    width:80%;
+    display:flex;
     background-color: black;
     color: white;
-    display: flex;
+    position:fixed;
+    bottom:0;
     grid-gap: 1rem;
 }
