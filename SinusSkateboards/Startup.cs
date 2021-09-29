@@ -28,6 +28,7 @@ namespace SinusSkateboards
             services.AddRazorPages();
             services.AddDbContext<AppDbContext>(options => options
             .UseSqlServer(Configuration.GetConnectionString("ChatDbConnection")));
+            services.AddSession(options => options.Cookie.MaxAge = TimeSpan.FromDays(7));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,11 +47,9 @@ namespace SinusSkateboards
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseSession();
             app.UseRouting();
-
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();

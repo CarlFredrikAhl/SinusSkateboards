@@ -2,8 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Newtonsoft.Json;
 using SinusSkateboards.Database;
 using SinusSkateboards.Models;
 
@@ -14,6 +16,8 @@ namespace SinusSkateboards.Pages
         private readonly AppDbContext database;
 
         public List<ProductModel> Products { get; set; }
+
+        public int ItemsInCart { get; set; }
 
         public T_shirtsModel(AppDbContext context)
         {
@@ -51,6 +55,50 @@ namespace SinusSkateboards.Pages
             {
                 Products = database.Products.Where(product => product.Title.Contains("T-shirt")).ToList();
             }
+
+            //Check how many items in cart
+            ItemsInCart = 0;
+
+            List<ProductModel> cookieProducts = new List<ProductModel>();
+
+            string stringProducts = HttpContext.Session.GetString("cart_items");
+
+            //Cookie products exists in the cart already
+            if (stringProducts != null)
+            {
+                cookieProducts = JsonConvert.DeserializeObject<List<ProductModel>>(stringProducts);
+            }
+
+            foreach (var product in cookieProducts)
+            {
+                ItemsInCart++;
+            }
+        }
+
+        //Method for adding item to the cart
+        public IActionResult OnPostAddToCart(int id)
+        {
+            //Clicked product
+            var product = database.Products.Where(product => product.ProductId == id).FirstOrDefault();
+
+            //Save to session cookie
+            List<ProductModel> cookieProducts = new List<ProductModel>();
+
+            string stringProducts = HttpContext.Session.GetString("cart_items");
+
+            //Cookie products exists in the cart already
+            if(stringProducts != null)
+            {
+                cookieProducts = JsonConvert.DeserializeObject<List<ProductModel>>(stringProducts);
+            }
+
+            cookieProducts.Add(product);
+
+            stringProducts = JsonConvert.SerializeObject(cookieProducts);
+
+            HttpContext.Session.SetString("cart_items", stringProducts);
+
+            return RedirectToPage("/T-shirts");
         }
     }
 }
