@@ -1,7 +1,6 @@
 ﻿@page
-@model IndexModel
+@model SinusSkateboards.Pages.HoodiesModel
 @{
-    ViewData["Title"] = "Home page";
 }
 
 <div class="wrapper2">
@@ -21,11 +20,18 @@
     </nav>
     <section>
         <main>
-            <article>
-                <img src="~/imgs/home_img.jpg" style="max-width:1000px">
-                <h2>We love skateboarding!</h2>
-                <p>Check out our products, we got t-shirts, hoodies, caps, boards and wheels all in good quality and fair prices</p>
-            </article>
+            @foreach (var product in Model.Products.Where(product => product.Title.Contains("Hoodie")))
+            {
+                <article>
+                    <img src="~/imgs/products/@product.Image" style="max-width:200px">
+                    <h2>@product.Title</h2>
+                    <p>@product.Description</p>
+                    <p>@product.Color</p>
+                    <p>$@product.Price</p>
+
+                    <button class="brn btn-success">Add to cart</button>
+                </article>
+            }
         </main>
         <aside>
             <h4>Clothes</h4>
