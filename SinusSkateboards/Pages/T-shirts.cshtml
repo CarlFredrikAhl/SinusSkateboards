@@ -12,11 +12,23 @@
     </header>
     <nav>
         <a href="/Index">Home</a>
-        <a href="/Cart">
-            <span class="material-icons-outlined">
-                shopping_cart 
-            </span>
-        </a>
+        @if (Model.ItemsInCart > 0)
+        {
+            <a href="/Cart">
+                <span class="material-icons-outlined">
+                    shopping_cart
+                </span>
+            </a>
+
+        }
+        else
+        {
+            <a href="/T-shirts">
+                <span class="material-icons-outlined">
+                    shopping_cart
+                </span>
+            </a>
+        }
         <p>(@Model.ItemsInCart)</p>
     </nav>
     <section>

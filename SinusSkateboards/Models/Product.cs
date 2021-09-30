@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace SinusSkateboards.Models
 {
-    public class Product
+    public class Product : IEquatable<Product>
     {
         [Key]
         public int ProductId { get; set; } //Primary key
@@ -26,6 +27,15 @@ namespace SinusSkateboards.Models
             Description = desc;
             Color = color;
             Price = price;
+        }
+
+        public bool Equals(Product other)
+        {
+            return Title.Equals(other.Title);
+        }
+        public int GetHashCode(Product product)
+        {
+            return (product.Title).GetHashCode();
         }
     }
 }

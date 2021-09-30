@@ -35,13 +35,13 @@ namespace SinusSkateboards.Pages
                     new Product("sinus-tshirt-blue.png", "T-shirt (blue)", "Blue skate t-shirt"
                     , "Blue", 15),
                     new Product("sinus-tshirt-grey.png", "T-shirt (grey)", "Grey skate t-shirt"
-                    , "Blue", 15),
+                    , "Grey", 15),
                     new Product("sinus-tshirt-pink.png", "T-shirt (pink)", "Pink skate t-shirt"
-                    , "Blue", 15),
+                    , "Pink", 15),
                     new Product("sinus-tshirt-purple.png", "T-shirt (purple)", "Purple skate t-shirt"
-                    , "Blue", 15),
+                    , "Purple", 15),
                     new Product("sinus-tshirt-yellow.png", "T-shirt (yellow)", "Yellow skate t-shirt"
-                    , "Blue", 15),
+                    , "Yellow", 15),
                 };
 
                 foreach (var product in Products)
