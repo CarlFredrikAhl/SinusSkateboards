@@ -17,14 +17,14 @@
                 shopping_cart
             </span>
         </a>
-        <p>(@Model.ItemsInCart)</p>
+        <p>(@Model.Cart.Products.Count)</p>
     </nav>
     <section>
         <main>
-            @foreach (var product in Model.Products)
+            @foreach (var product in Model.Cart.Products)
             {
                 <article>
-                    <img src="~/imgs/products/@product.Image" style="max-width:200px">
+                    <img src="~/imgs/products/@product.Image" style="max-width:100px">
                     <h2>@product.Title</h2>
                     <p>@product.Description</p>
                     <p>@product.Color</p>
@@ -35,6 +35,11 @@
                     </form>
                 </article>
             }
+
+            <article>
+                <h2>Total price: $@Model.Cart.TotalPrice</h2>
+                <button class="brn btn-success">Continue to checkout</button>
+            </article>
         </main>
         <aside>
             <h4>Clothes</h4>

@@ -16,9 +16,7 @@ namespace SinusSkateboards.Pages
         private readonly AppDbContext database;
 
         [BindProperty]
-        public List<Product> Products { get; set; }
-
-        public int ItemsInCart { get; set; }
+        public Cart Cart { get; set; }
 
         public CartModel(AppDbContext context)
         {
@@ -27,11 +25,7 @@ namespace SinusSkateboards.Pages
 
         public void OnGet()
         {
-
-            Products = new List<Product>();
-
-            //Check how many items in cart
-            ItemsInCart = 0;
+            Cart = new Cart();
 
             List<Product> cookieProducts = new List<Product>();
 
@@ -45,8 +39,7 @@ namespace SinusSkateboards.Pages
 
             foreach (var product in cookieProducts)
             {
-                Products.Add(product);
-                ItemsInCart++;
+                Cart.Products.Add(product);
             }
         }
 
