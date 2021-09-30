@@ -28,6 +28,8 @@ namespace SinusSkateboards.Pages
         public void OnGet()
         {
 
+            Products = new List<Product>();
+
             //Check how many items in cart
             ItemsInCart = 0;
 
@@ -43,6 +45,7 @@ namespace SinusSkateboards.Pages
 
             foreach (var product in cookieProducts)
             {
+                Products.Add(product);
                 ItemsInCart++;
             }
         }

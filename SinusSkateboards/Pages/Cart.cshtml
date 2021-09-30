@@ -21,7 +21,7 @@
     </nav>
     <section>
         <main>
-            @foreach (var product in Model.Products.Where(product => product.Title.Contains("T-shirt")))
+            @foreach (var product in Model.Products)
             {
                 <article>
                     <img src="~/imgs/products/@product.Image" style="max-width:200px">
@@ -31,7 +31,7 @@
                     <p>$@product.Price</p>
 
                     <form method="post">
-                        <button class="brn btn-success" asp-route-productId="@product.ProductId">Add to cart</button>
+                        <button class="brn btn-danger">Delete from cart</button>
                     </form>
                 </article>
             }
