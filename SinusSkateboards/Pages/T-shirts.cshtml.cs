@@ -77,6 +77,7 @@ namespace SinusSkateboards.Pages
         }
 
         //Method for adding item to the cart
+        //Didn't work naming it to "OnPostAddToCart" and using asp-page-handler="AddToCart"
         public IActionResult OnPost(int productId)
         {
             //Clicked product
