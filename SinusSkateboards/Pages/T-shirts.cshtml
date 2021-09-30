@@ -29,8 +29,8 @@
                     <p>@product.Color</p>
                     <p>$@product.Price</p>
 
-                    <form method="post" asp-page-handler="AddToCart">
-                        <button class="brn btn-success" asp-route-id="@product.ProductId">Add to cart</button>
+                    <form method="post">
+                        <button class="brn btn-success" asp-route-productId="@product.ProductId">Add to cart</button>
                     </form>
                 </article>
             }

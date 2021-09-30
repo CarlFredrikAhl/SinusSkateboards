@@ -15,6 +15,7 @@ namespace SinusSkateboards.Pages
     {
         private readonly AppDbContext database;
 
+        [BindProperty]
         public List<ProductModel> Products { get; set; }
 
         public int ItemsInCart { get; set; }
@@ -76,10 +77,10 @@ namespace SinusSkateboards.Pages
         }
 
         //Method for adding item to the cart
-        public IActionResult OnPostAddToCart(int id)
+        public IActionResult OnPost(int productId)
         {
             //Clicked product
-            var product = database.Products.Where(product => product.ProductId == id).FirstOrDefault();
+            var product = database.Products.Where(product => product.ProductId == productId).FirstOrDefault();
 
             //Save to session cookie
             List<ProductModel> cookieProducts = new List<ProductModel>();
