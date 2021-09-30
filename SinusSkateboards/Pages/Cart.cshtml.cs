@@ -43,11 +43,29 @@ namespace SinusSkateboards.Pages
             }
         }
 
-        //Method for adding item to the cart
-        //Didn't work naming it to "OnPostAddToCart" and using asp-page-handler="AddToCart"
-        //public IActionResult OnPost(int productId)
-        //{
-        //}
+        //Metod for deleating product from cart
+        public IActionResult OnPostDelete(int productId)
+        {
+            List<Product> cookieProducts = new List<Product>();
+
+            string stringProducts = HttpContext.Session.GetString("cart_items");
+
+            //Cookie products exists in the cart already
+            if (stringProducts != null)
+            {
+                cookieProducts = JsonConvert.DeserializeObject<List<Product>>(stringProducts);
+            }
+
+            Product productToRemove = cookieProducts.Where(product => product.ProductId == productId).FirstOrDefault();
+
+            cookieProducts.Remove(productToRemove);
+
+            stringProducts = JsonConvert.SerializeObject(cookieProducts);
+
+            HttpContext.Session.SetString("cart_items", stringProducts);
+
+            return RedirectToPage("/Cart");
+        }
     }
 }
 

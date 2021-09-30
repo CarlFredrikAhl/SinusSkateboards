@@ -31,7 +31,7 @@
                     <p>$@product.Price</p>
 
                     <form method="post">
-                        <button class="brn btn-danger">Delete from cart</button>
+                        <button class="brn btn-danger" asp-route-productId="@product.ProductId" asp-page-handler="Delete">Delete from cart</button>
                     </form>
                 </article>
             }
