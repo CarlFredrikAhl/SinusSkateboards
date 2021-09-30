@@ -18,8 +18,13 @@ namespace SinusSkateboards.Pages
         [BindProperty]
         public Cart Cart { get; set; }
 
+        //[BindProperty]
+        //public List<int> SameProductId { get; set; }
+
         [BindProperty]
-        public List<int> SameProductId { get; set; }
+        public List<Product> SameProducts { get; set; }
+
+        public List<string> SameTitles { get; set; }
 
         public CartModel(AppDbContext context)
         {
@@ -30,7 +35,9 @@ namespace SinusSkateboards.Pages
         {
             Cart = new Cart();
 
-            SameProductId = new List<int>();
+            //SameProductId = new List<int>();
+            SameProducts = new List<Product>();
+            SameTitles = new List<string>();
 
             List<Product> cookieProducts = new List<Product>();
 
@@ -42,7 +49,21 @@ namespace SinusSkateboards.Pages
                 cookieProducts = JsonConvert.DeserializeObject<List<Product>>(stringProducts);
             }
 
-            Cart.Products = cookieProducts.Distinct().ToList();
+            Cart.Products = cookieProducts.ToList();
+
+            List<string> allTitles = new List<string>();
+
+            foreach (var product in Cart.Products)
+            {
+                allTitles.Add(product.Title);
+            }
+
+            SameTitles = allTitles.Distinct().ToList();
+
+            foreach(var title in SameTitles)
+            {
+                SameProducts.Add(database.Products.Where(product => product.Title == title).FirstOrDefault());
+            }
         }
 
         //Metod for deleating product from cart
