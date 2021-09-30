@@ -9,8 +9,8 @@ namespace SinusSkateboards.Database
 {
     public class AppDbContext : DbContext
     {
-        public DbSet<ProductModel> Products { get; set; }
-        public DbSet<OrderModel> Orders { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<Order> Orders { get; set; }
 
 
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)

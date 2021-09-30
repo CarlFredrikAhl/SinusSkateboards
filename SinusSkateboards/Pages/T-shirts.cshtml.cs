@@ -16,7 +16,7 @@ namespace SinusSkateboards.Pages
         private readonly AppDbContext database;
 
         [BindProperty]
-        public List<ProductModel> Products { get; set; }
+        public List<Product> Products { get; set; }
 
         public int ItemsInCart { get; set; }
 
@@ -30,17 +30,17 @@ namespace SinusSkateboards.Pages
             //Add the products to the database if there are no ones already
             if (database.Products.Where(product => product.Title.Contains("T-shirt")).ToList().Count == 0)
             {
-                Products = new List<ProductModel>()
+                Products = new List<Product>()
                 {
-                    new ProductModel("sinus-tshirt-blue.png", "T-shirt (blue)", "Blue skate t-shirt"
+                    new Product("sinus-tshirt-blue.png", "T-shirt (blue)", "Blue skate t-shirt"
                     , "Blue", 15),
-                    new ProductModel("sinus-tshirt-grey.png", "T-shirt (grey)", "Grey skate t-shirt"
+                    new Product("sinus-tshirt-grey.png", "T-shirt (grey)", "Grey skate t-shirt"
                     , "Blue", 15),
-                    new ProductModel("sinus-tshirt-pink.png", "T-shirt (pink)", "Pink skate t-shirt"
+                    new Product("sinus-tshirt-pink.png", "T-shirt (pink)", "Pink skate t-shirt"
                     , "Blue", 15),
-                    new ProductModel("sinus-tshirt-purple.png", "T-shirt (purple)", "Purple skate t-shirt"
+                    new Product("sinus-tshirt-purple.png", "T-shirt (purple)", "Purple skate t-shirt"
                     , "Blue", 15),
-                    new ProductModel("sinus-tshirt-yellow.png", "T-shirt (yellow)", "Yellow skate t-shirt"
+                    new Product("sinus-tshirt-yellow.png", "T-shirt (yellow)", "Yellow skate t-shirt"
                     , "Blue", 15),
                 };
 
@@ -60,14 +60,14 @@ namespace SinusSkateboards.Pages
             //Check how many items in cart
             ItemsInCart = 0;
 
-            List<ProductModel> cookieProducts = new List<ProductModel>();
+            List<Product> cookieProducts = new List<Product>();
 
             string stringProducts = HttpContext.Session.GetString("cart_items");
 
             //Cookie products exists in the cart already
             if (stringProducts != null)
             {
-                cookieProducts = JsonConvert.DeserializeObject<List<ProductModel>>(stringProducts);
+                cookieProducts = JsonConvert.DeserializeObject<List<Product>>(stringProducts);
             }
 
             foreach (var product in cookieProducts)
@@ -84,14 +84,14 @@ namespace SinusSkateboards.Pages
             var product = database.Products.Where(product => product.ProductId == productId).FirstOrDefault();
 
             //Save to session cookie
-            List<ProductModel> cookieProducts = new List<ProductModel>();
+            List<Product> cookieProducts = new List<Product>();
 
             string stringProducts = HttpContext.Session.GetString("cart_items");
 
             //Cookie products exists in the cart already
             if(stringProducts != null)
             {
-                cookieProducts = JsonConvert.DeserializeObject<List<ProductModel>>(stringProducts);
+                cookieProducts = JsonConvert.DeserializeObject<List<Product>>(stringProducts);
             }
 
             cookieProducts.Add(product);

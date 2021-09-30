@@ -13,7 +13,7 @@ namespace SinusSkateboards.Pages
     {
         private readonly AppDbContext database;
 
-        public List<ProductModel> Products { get; set; }
+        public List<Product> Products { get; set; }
 
         public HoodiesModel(AppDbContext context)
         {
@@ -25,17 +25,17 @@ namespace SinusSkateboards.Pages
             //Add the products to the database if there are no ones already
             if (database.Products.Where(product => product.Title.Contains("Hoodie")).ToList().Count == 0)
             {
-                Products = new List<ProductModel>()
+                Products = new List<Product>()
                 {
-                    new ProductModel("hoodie-ash.png", "Hoodie (ash)", "Grey skate hoodie"
+                    new Product("hoodie-ash.png", "Hoodie (ash)", "Grey skate hoodie"
                     , "Grey", 35),
-                    new ProductModel("hoodie-fire.png", "Hoodie (fire)", "Red skate hoodie"
+                    new Product("hoodie-fire.png", "Hoodie (fire)", "Red skate hoodie"
                     , "Red", 35),
-                    new ProductModel("hoodie-green.png", "Hoodie (green)", "Green skate hoodie"
+                    new Product("hoodie-green.png", "Hoodie (green)", "Green skate hoodie"
                     , "Green", 35),
-                    new ProductModel("hoodie-ocean.png", "Hoodie (ocean)", "Blue skate hoodie"
+                    new Product("hoodie-ocean.png", "Hoodie (ocean)", "Blue skate hoodie"
                     , "Blue", 35),
-                    new ProductModel("hoodie-purple.png", "Hoodie (purple)", "Purple skate hoodie"
+                    new Product("hoodie-purple.png", "Hoodie (purple)", "Purple skate hoodie"
                     , "Purple", 35),
                 };
 

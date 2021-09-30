@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SinusSkateboards.Models
 {
-    public class CheckoutModel
+    public class Checkout
     {
         [Key]
         public int CheckoutId { get; set; } //Primary key

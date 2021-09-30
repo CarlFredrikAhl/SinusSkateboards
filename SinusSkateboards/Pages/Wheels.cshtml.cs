@@ -13,7 +13,7 @@ namespace SinusSkateboards.Pages
     {
         private readonly AppDbContext database;
 
-        public List<ProductModel> Products { get; set; }
+        public List<Product> Products { get; set; }
 
         public WheelsModel(AppDbContext context)
         {
@@ -25,13 +25,13 @@ namespace SinusSkateboards.Pages
             //Add the products to the database if there are no ones already
             if (database.Products.Where(product => product.Title.Contains("Wheel")).ToList().Count == 0)
             {
-                Products = new List<ProductModel>()
+                Products = new List<Product>()
                 {
-                    new ProductModel("sinus-wheel-rocket.png", "Wheel (rocket)", "Four rocket skate wheels"
+                    new Product("sinus-wheel-rocket.png", "Wheel (rocket)", "Four rocket skate wheels"
                     , "White/Red", 20),
-                    new ProductModel("sinus-wheel-spinner.png", "Wheel (spinner)", "Four white skate wheels"
+                    new Product("sinus-wheel-spinner.png", "Wheel (spinner)", "Four white skate wheels"
                     , "White", 20),
-                    new ProductModel("sinus-wheel-wave.png", "Wheel (wave)", "Four wave skate wheels"
+                    new Product("sinus-wheel-wave.png", "Wheel (wave)", "Four wave skate wheels"
                     , "White/Black", 20),
                 };
 

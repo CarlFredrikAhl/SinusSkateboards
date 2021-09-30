@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SinusSkateboards.Models
 {
-    public class ProductModel
+    public class Product
     {
         [Key]
         public int ProductId { get; set; } //Primary key
@@ -16,9 +16,9 @@ namespace SinusSkateboards.Models
         public string Color { get; set; }
         public int Price { get; set; }
 
-        public ProductModel() { }
+        public Product() { }
 
-        public ProductModel(string img, string title, string desc,
+        public Product(string img, string title, string desc,
             string color, int price)
         {
             Image = img;

@@ -10,8 +10,8 @@ using SinusSkateboards.Database;
 namespace SinusSkateboards.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20210929122312_removedCartId")]
-    partial class removedCartId
+    [Migration("20210930091422_initialCommit")]
+    partial class initialCommit
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -21,7 +21,7 @@ namespace SinusSkateboards.Migrations
                 .HasAnnotation("ProductVersion", "5.0.10")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("SinusSkateboards.Models.OrderModel", b =>
+            modelBuilder.Entity("SinusSkateboards.Models.Order", b =>
                 {
                     b.Property<int>("OrderId")
                         .ValueGeneratedOnAdd()
@@ -42,7 +42,7 @@ namespace SinusSkateboards.Migrations
                     b.ToTable("Orders");
                 });
 
-            modelBuilder.Entity("SinusSkateboards.Models.ProductModel", b =>
+            modelBuilder.Entity("SinusSkateboards.Models.Product", b =>
                 {
                     b.Property<int>("ProductId")
                         .ValueGeneratedOnAdd()
@@ -58,7 +58,7 @@ namespace SinusSkateboards.Migrations
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("OrderModelOrderId")
+                    b.Property<int?>("OrderId")
                         .HasColumnType("int");
 
                     b.Property<int>("Price")
@@ -69,19 +69,19 @@ namespace SinusSkateboards.Migrations
 
                     b.HasKey("ProductId");
 
-                    b.HasIndex("OrderModelOrderId");
+                    b.HasIndex("OrderId");
 
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("SinusSkateboards.Models.ProductModel", b =>
+            modelBuilder.Entity("SinusSkateboards.Models.Product", b =>
                 {
-                    b.HasOne("SinusSkateboards.Models.OrderModel", null)
+                    b.HasOne("SinusSkateboards.Models.Order", null)
                         .WithMany("Products")
-                        .HasForeignKey("OrderModelOrderId");
+                        .HasForeignKey("OrderId");
                 });
 
-            modelBuilder.Entity("SinusSkateboards.Models.OrderModel", b =>
+            modelBuilder.Entity("SinusSkateboards.Models.Order", b =>
                 {
                     b.Navigation("Products");
                 });

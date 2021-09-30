@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace SinusSkateboards.Models
 {
-    public class CartModel
+    public class Cart
     {
         //[Key]
         //public int CartId { get; set; }
-        public List<ProductModel> Products { get; set; }
+        public List<Product> Products { get; set; }
         public int TotalPrice { get; set; }
 
-        public CartModel(){ }
+        public Cart(){ }
 
-        public CartModel(List<ProductModel> products, int totalPrice)
+        public Cart(List<Product> products, int totalPrice)
         {
             Products = products;
             TotalPrice = totalPrice;

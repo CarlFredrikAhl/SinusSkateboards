@@ -13,7 +13,7 @@ namespace SinusSkateboards.Pages
     {
         private readonly AppDbContext database;
 
-        public List<ProductModel> Products { get; set; }
+        public List<Product> Products { get; set; }
 
         public CapsModel(AppDbContext context)
         {
@@ -25,15 +25,15 @@ namespace SinusSkateboards.Pages
             //Add the products to the database if there are no ones already
             if (database.Products.Where(product => product.Title.Contains("Cap")).ToList().Count == 0)
             {
-                Products = new List<ProductModel>()
+                Products = new List<Product>()
                 {
-                    new ProductModel("sinus-cap-blue.png", "Cap (blue)", "Blue skate cap"
+                    new Product("sinus-cap-blue.png", "Cap (blue)", "Blue skate cap"
                     , "Blue", 10),
-                    new ProductModel("sinus-cap-green.png", "Cap (green)", "Green skate cap"
+                    new Product("sinus-cap-green.png", "Cap (green)", "Green skate cap"
                     , "Green", 10),
-                    new ProductModel("sinus-cap-purple.png", "Cap (purple)", "Purple skate cap"
+                    new Product("sinus-cap-purple.png", "Cap (purple)", "Purple skate cap"
                     , "Purple", 10),
-                    new ProductModel("sinus-cap-red.png", "Cap (red)", "Red skate cap"
+                    new Product("sinus-cap-red.png", "Cap (red)", "Red skate cap"
                     , "Red", 10),
                 };
 
