@@ -26,6 +26,8 @@ namespace SinusSkateboards.Pages
 
         public List<string> SameTitles { get; set; }
 
+        public Dictionary<int, int> ProductIdCount { get; set; }
+
         public CartModel(AppDbContext context)
         {
             database = context;
@@ -34,6 +36,8 @@ namespace SinusSkateboards.Pages
         public void OnGet()
         {
             Cart = new Cart();
+
+            ProductIdCount = new Dictionary<int, int>();
 
             //SameProductId = new List<int>();
             SameProducts = new List<Product>();
@@ -63,6 +67,37 @@ namespace SinusSkateboards.Pages
             foreach(var title in SameTitles)
             {
                 SameProducts.Add(database.Products.Where(product => product.Title == title).FirstOrDefault());
+            }
+
+            foreach (var product in Cart.Products)
+            {
+                int count;
+
+                if(ProductIdCount.ContainsKey(product.ProductId))
+                {
+                    count = ProductIdCount[product.ProductId];
+                    
+                } else
+                {
+                    count = 0;
+                }
+
+                foreach (var title in SameTitles)
+                {
+                    if(product.Title == title)
+                    {
+                        count++;
+                        
+                        if(!ProductIdCount.ContainsKey(product.ProductId))
+                        {
+                            ProductIdCount.Add(product.ProductId, count);
+                        
+                        } else
+                        {
+                            ProductIdCount[product.ProductId] = count;
+                        }
+                    }
+                }
             }
         }
 
