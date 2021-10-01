@@ -1,0 +1,19 @@
+﻿@page
+@model SinusSkateboards.Pages.LoginModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h1>Login</h1>
+
+<form method="post">
+    <span class="text-danger" asp-validation-for="@Model.Username"></span>
+    <br />
+    <span class="text-danger" asp-validation-for="@Model.Password"></span>
+    <br />
+    <label for="username">Username:</label>
+    <input id="username" type="text" asp-for="@Model.Username" />
+    <label for="password">Password:</label>
+    <input id="password" type="password" asp-for="@Model.Password" />
+    <button class="btn btn-outline-success">Sign in</button>
+</form>

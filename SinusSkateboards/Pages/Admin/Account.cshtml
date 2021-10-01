@@ -1,0 +1,14 @@
+﻿@model SinusSkateboards.Pages.Admin.AccountModel
+@{
+    ViewData["Title"] = "Account";
+}
+
+<h1>Account</h1>
+
+<form method="post">
+    <label for="old-password">Old password:</label>
+    <input id="old-password" type="password" asp-for="@Model.OldPassword" />
+    <label for="new-password">New password:</label>
+    <input id="new-password" type="password" asp-for="@Model.NewPassword" />
+    <button class="btn btn-primary">Change password</button>
+</form>
