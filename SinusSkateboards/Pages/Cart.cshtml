@@ -21,37 +21,45 @@
     </nav>
     <section>
         <main>
-            @foreach (var product in Model.Cart.Products)
+            @foreach (var product in Model.DistinctProducts)
             {
-                @if (!Model.SameProducts.Contains(product))
+                @foreach (var item in Model.ProductIdCount)
                 {
-                    <article>
-                        <img src="~/imgs/products/@product.Image" style="max-width:100px">
-                        <h2>@product.Title</h2>
-                        <p>@product.Description</p>
-                        <p>@product.Color</p>
-                        <p>$@product.Price</p>
+                    if (product.ProductId == item.Key)
+                    {
+                        if (Model.ProductIdCount[item.Key] > 1)
+                        {
+                            <article>
+                                <img src="~/imgs/products/@product.Image" style="max-width:100px">
+                                <h2>@product.Title (Quantity: @item.Value)</h2>
+                                <p>@product.Description</p>
+                                <p>@product.Color</p>
+                                <p>$@product.Price</p>
 
-                        <form method="post">
-                            <button class="brn btn-danger" asp-route-productId="@product.ProductId" asp-page-handler="Delete">Delete from cart</button>
-                        </form>
-                    </article>
+                                <form method="post">
+                                    <button class="brn btn-danger" asp-route-productId="@product.ProductId" asp-page-handler="Delete">Delete from cart</button>
+                                </form>
+                            </article>
+                            break;
+
+                        }
+                        else
+                        {
+                            <article>
+                                <img src="~/imgs/products/@product.Image" style="max-width:100px">
+                                <h2>@product.Title</h2>
+                                <p>@product.Description</p>
+                                <p>@product.Color</p>
+                                <p>$@product.Price</p>
+
+                                <form method="post">
+                                    <button class="brn btn-danger" asp-route-productId="@product.ProductId" asp-page-handler="Delete">Delete from cart</button>
+                                </form>
+                            </article>
+                            break;
+                        }
+                    }
                 }
-            }
-
-            @foreach (var product in Model.SameProducts)
-            {
-                <article>
-                    <img src="~/imgs/products/@product.Image" style="max-width:100px">
-                    <h2>@product.Title</h2>
-                    <p>@product.Description</p>
-                    <p>@product.Color</p>
-                    <p>$@product.Price</p>
-
-                    <form method="post">
-                        <button class="brn btn-danger" asp-route-productId="@product.ProductId" asp-page-handler="Delete">Delete from cart</button>
-                    </form>
-                </article>
             }
             <article>
                 <h2>Total price: $@Model.Cart.TotalPrice</h2>

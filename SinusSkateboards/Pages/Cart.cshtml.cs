@@ -22,10 +22,11 @@ namespace SinusSkateboards.Pages
         //public List<int> SameProductId { get; set; }
 
         [BindProperty]
-        public List<Product> SameProducts { get; set; }
+        public List<Product> DistinctProducts { get; set; }
 
         public List<string> SameTitles { get; set; }
 
+        [BindProperty]
         public Dictionary<int, int> ProductIdCount { get; set; }
 
         public CartModel(AppDbContext context)
@@ -40,7 +41,7 @@ namespace SinusSkateboards.Pages
             ProductIdCount = new Dictionary<int, int>();
 
             //SameProductId = new List<int>();
-            SameProducts = new List<Product>();
+            DistinctProducts = new List<Product>();
             SameTitles = new List<string>();
 
             List<Product> cookieProducts = new List<Product>();
@@ -66,9 +67,10 @@ namespace SinusSkateboards.Pages
 
             foreach(var title in SameTitles)
             {
-                SameProducts.Add(database.Products.Where(product => product.Title == title).FirstOrDefault());
+                DistinctProducts.Add(database.Products.Where(product => product.Title == title).FirstOrDefault());
             }
 
+            //Algorithm to know the quantity of all products
             foreach (var product in Cart.Products)
             {
                 int count;
