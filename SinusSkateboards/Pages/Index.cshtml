@@ -19,8 +19,8 @@
             </span>
         </a>
         <form method="post">
-            <label for="search">Search product/s</label>
-            <input id="search" type="search" style="width:450px" asp-for="@Model.SearchString" placeholder="Search product/s, ex: t-shirt or t-shirt hoodie, northern lights"/>
+            <label for="search">Search product</label>
+            <input id="search" type="search" style="width:400px" asp-for="@Model.SearchString" placeholder="Search product, ex: t-shirt or northern lights or blue"/>
             <input type="submit" asp-route-searchString="@Model.SearchString"/>
         </form>
     </nav>

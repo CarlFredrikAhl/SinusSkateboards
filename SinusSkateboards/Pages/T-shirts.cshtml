@@ -33,7 +33,7 @@
     </nav>
     <section>
         <main>
-            @foreach (var product in Model.Products.Where(product => product.Title.Contains("T-shirt")))
+            @foreach (var product in Model.Products)
             {
                 <article>
                     <img src="~/imgs/products/@product.Image" style="max-width:200px">
