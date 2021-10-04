@@ -7,6 +7,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using SinusSkateboards.Database;
 using SinusSkateboards.Models;
+using Newtonsoft.Json;
+using Microsoft.AspNetCore.Http;
 
 namespace SinusSkateboards.Pages
 {
@@ -15,8 +17,27 @@ namespace SinusSkateboards.Pages
     {
         public string SearchString { get; set; }
 
+        public int ItemsInCart { get; set; }
+
         public void OnGet()
         {
+            //Check how many items in cart (doesn't display right if you press back button, fix this later)
+            ItemsInCart = 0;
+
+            List<Product> cookieProducts = new List<Product>();
+
+            string stringProducts = HttpContext.Session.GetString("cart_items");
+
+            //Cookie products exists in the cart already
+            if (stringProducts != null)
+            {
+                cookieProducts = JsonConvert.DeserializeObject<List<Product>>(stringProducts);
+            }
+
+            foreach (var product in cookieProducts)
+            {
+                ItemsInCart++;
+            }
         }
 
         //Go to the search page with searchString data

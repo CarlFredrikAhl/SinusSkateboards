@@ -13,6 +13,7 @@ namespace SinusSkateboards.Pages
 {
     public class SearchModel : PageModel
     {
+        [BindProperty]
         public string SearchString { get; set; }
 
         public List<Product> Products { get; set; }
@@ -28,6 +29,8 @@ namespace SinusSkateboards.Pages
         
         public void OnGet(string search)
         {
+            SearchString = search;
+
             Products = new List<Product>();
             Products = database.Products.Where(product => product.Title.ToUpper().Contains(search.ToUpper())).ToList();
 
@@ -48,6 +51,12 @@ namespace SinusSkateboards.Pages
             {
                 ItemsInCart++;
             }
+        }
+
+        //Go to the search page with searchString data
+        public IActionResult OnPost()
+        {
+            return RedirectToPage("/Search", new { search = SearchString });
         }
     }
 }

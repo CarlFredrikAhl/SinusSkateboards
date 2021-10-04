@@ -19,17 +19,20 @@
                     shopping_cart
                 </span>
             </a>
-
         }
         else
         {
-            <a href="/T-shirts">
+            <a href="/Index">
                 <span class="material-icons-outlined">
                     shopping_cart
                 </span>
             </a>
         }
         <p>(@Model.ItemsInCart)</p>
+        <form method="post">
+            <input id="search" type="search" style="width:400px" asp-for="@Model.SearchString" placeholder="Search product, ex: t-shirt or northern lights or blue" />
+            <input type="submit" asp-route-searchString="@Model.SearchString" />
+        </form>
     </nav>
     <section>
         <main>
