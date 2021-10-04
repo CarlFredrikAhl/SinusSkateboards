@@ -13,9 +13,16 @@ namespace SinusSkateboards.Pages
     [BindProperties]
     public class IndexModel : PageModel
     {
+        public string SearchString { get; set; }
 
         public void OnGet()
         {
+        }
+
+        //Go to the search page with searchString data
+        public IActionResult OnPost()
+        {
+            return RedirectToPage("/Search", new { search = SearchString});
         }
     }
 }

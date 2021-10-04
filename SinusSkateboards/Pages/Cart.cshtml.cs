@@ -15,18 +15,14 @@ namespace SinusSkateboards.Pages
     {
         private readonly AppDbContext database;
 
-        [BindProperty]
         public Cart Cart { get; set; }
 
-        //[BindProperty]
-        //public List<int> SameProductId { get; set; }
+        public List<int> SameProductId { get; set; }
 
-        [BindProperty]
         public List<Product> DistinctProducts { get; set; }
 
         public List<string> DistinctTitles { get; set; }
 
-        [BindProperty]
         public Dictionary<int, int> ProductIdCount { get; set; }
 
         public CartModel(AppDbContext context)
