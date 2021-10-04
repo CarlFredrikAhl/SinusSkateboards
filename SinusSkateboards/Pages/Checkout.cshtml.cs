@@ -33,7 +33,7 @@ namespace SinusSkateboards.Pages
             database.Checkouts.Add(Checkout);
             database.SaveChanges();
 
-            return RedirectToPage("/SuccessfulPurchase");
+            return RedirectToPage("/SuccessfulPurchase", new { checkoutId = Checkout.CheckoutId });
         }
     }
 }

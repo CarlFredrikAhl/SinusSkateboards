@@ -37,8 +37,8 @@
                     </div>
                     <div class="mb-2">
                         @*<label for="phoneNumber">Phone number:</label><br>*@
-                        <input required  type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" id="phoneNumber" asp-for="@Model.Checkout.PhoneNumber" 
-                               placeholder="Phone number (123-456-7890)" size="40">
+                        <input required type="tel" id="phoneNumber" asp-for="@Model.Checkout.PhoneNumber" 
+                               placeholder="Phone number" size="40">
                     </div>
                     <div class="mb-2">
                         @*<label for="deliveryAddress">Delivery address:</label><br>*@

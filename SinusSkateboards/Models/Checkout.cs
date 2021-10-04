@@ -15,6 +15,6 @@ namespace SinusSkateboards.Models
         public string LastName { get; set; }
         public string EmailAddress { get; set; }
         public string DeliveryAddress { get; set; }
-        public int ?PhoneNumber { get; set; }
+        public int? PhoneNumber { get; set; }
     }
 }

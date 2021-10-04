@@ -22,7 +22,17 @@
         <main>
             <h1>Purchase successful!</h1>
             <article>
-                <p>Your products:</p>
+                <p>First name: @Model.Checkout.FirstName</p>
+                <p>Last name: @Model.Checkout.LastName</p>
+                <p>Email address: @Model.Checkout.EmailAddress</p>
+                <p>Phone number: @Model.Checkout.PhoneNumber</p>
+                <p>¨Delivery address: @Model.Checkout.DeliveryAddress</p>
+                <p>"Order number: @Model.Order.OrderNumber"</p>
+
+                @foreach (var product in Model.Order.Products)
+                {
+                    <p>@product.Title</p>
+                }
             </article>
         </main>
         <aside>

@@ -14,5 +14,13 @@ namespace SinusSkateboards.Models
         public int OrderNumber { get; set; }
         public List<Product> Products { get; set; }
         public DateTime Date { get; set; }
+
+        public Order(int checkoutId, List<Product> products, DateTime date)
+        {
+            CheckoutId = checkoutId;
+            Products = products;
+            Date = date;
+            OrderNumber = checkoutId + new Random().Next(0, 100);
+        }
     }
 }
