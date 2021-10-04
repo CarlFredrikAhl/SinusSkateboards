@@ -65,7 +65,9 @@
             }
             <article>
                 <h2>Total price: $@Model.Cart.TotalPrice</h2>
-                <button class="brn btn-success">Continue to checkout</button>
+                <form method="post">
+                    <button class="brn btn-success" asp-page="/Checkout">Continue to checkout</button>
+                </form>
             </article>
         </main>
         <aside>

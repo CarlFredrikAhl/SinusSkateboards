@@ -12,7 +12,7 @@ namespace SinusSkateboards.Database
     {
         public DbSet<Product> Products { get; set; }
         public DbSet<Order> Orders { get; set; }
-
+        public DbSet<Checkout> Checkouts { get; set; }
 
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {

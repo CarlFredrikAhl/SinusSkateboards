@@ -10,8 +10,8 @@ using SinusSkateboards.Database;
 namespace SinusSkateboards.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20211001131732_implimentingIdentityUser")]
-    partial class implimentingIdentityUser
+    [Migration("20211004124538_initComit")]
+    partial class initComit
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

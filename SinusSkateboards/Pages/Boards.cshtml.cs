@@ -41,7 +41,7 @@ namespace SinusSkateboards.Pages
                     , "Wood/Black", 65),
                     new Product("sinus-skateboard-logo.png", "Skateboard (logo)"
                     , "Board with only our beautiful logo", "Wood", 60),
-                    new Product("sinus-skateboard-northern_lights.png", "Skateboard (northen lights)"
+                    new Product("sinus-skateboard-northern_lights.png", "Skateboard (northern lights)"
                     , "Board with northen lights print", "Green/Blue/Black", 100),
                     new Product("sinus-skateboard-plastic.png", "Skateboard (plastic)", "Board with plastic print"
                     , "Mixed plastic colors", 60),

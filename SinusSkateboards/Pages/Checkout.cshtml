@@ -1,0 +1,70 @@
+﻿@page
+@model SinusSkateboards.Pages.CheckoutModel
+@{
+}
+
+<div class="wrapper2">
+    <header>
+        <h1>
+            Sinus Skateboards
+            <img src="~/imgs/logos/sinus-logo-landscape -  small.png" />
+        </h1>
+    </header>
+    <nav>
+        <a href="/Index">Home</a>
+        <a href="/Privacy">
+            <span class="material-icons-outlined">
+                shopping_cart
+            </span>
+        </a>
+    </nav>
+    <section>
+        <main>
+            <h1>Checkout</h1>
+            <article>
+                <form method="post">
+                    <div class="mb-1">
+                        @*<label for="firstName">First name:</label><br>*@
+                        <input required type="text" id="firstName" asp-for="@Model.Checkout.FirstName" placeholder="First name" size="40">
+                    </div>
+                    <div class="mb-1">
+                        @*<label for="lastName">Last name:</label><br>*@
+                        <input required type="text" id="lastName" asp-for="@Model.Checkout.LastName" placeholder="Last name" size="40">
+                    </div>
+                    <div class="mb-2">
+                        @*<label for="emailAddress">Email address:</label><br>*@
+                        <input required type="text" id="emailAddress" asp-for="@Model.Checkout.EmailAddress" placeholder="Email address" size="40">
+                    </div>
+                    <div class="mb-2">
+                        @*<label for="phoneNumber">Phone number:</label><br>*@
+                        <input required  type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" id="phoneNumber" asp-for="@Model.Checkout.PhoneNumber" 
+                               placeholder="Phone number (123-456-7890)" size="40">
+                    </div>
+                    <div class="mb-2">
+                        @*<label for="deliveryAddress">Delivery address:</label><br>*@
+                        <input required type="text" id="deliveryAddress" asp-for="@Model.Checkout.DeliveryAddress" placeholder="Delivery address" size="40">
+                    </div>
+                    <div class="mb-2">
+                       <button class="brn btn-success" asp-page-handler="Buy">Buy</button>
+                    </div>
+                </form>
+            </article>
+        </main>
+        <aside>
+            <h4>Clothes</h4>
+            <a href="/T-shirts">T-shirts</a>
+            <a href="/Hoodies">Hoodies</a>
+            <a href="/Caps">Caps</a>
+
+            <h4>Skateboarding</h4>
+            <a href="/Boards">Boards</a>
+            <a href="/Wheels">Wheels</a>
+        </aside>
+    </section>
+    <footer>
+        <article>
+            &copy; 2021 - Sinus Skateboards</p>
+            <a href="/About">About</a>
+        </article>
+    </footer>
+</div>
