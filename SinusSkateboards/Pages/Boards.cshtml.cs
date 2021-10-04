@@ -110,7 +110,7 @@ namespace SinusSkateboards.Pages
 
             HttpContext.Session.SetString("cart_items", stringProducts);
 
-            return RedirectToPage("/T-shirts");
+            return RedirectToPage("/Boards");
         }
     }
 }
