@@ -1,0 +1,68 @@
+﻿@page
+@model SinusSkateboards.Pages.ChosenProductModel
+@{
+}
+
+<div class="wrapper2">
+    <header>
+        <h1>
+            Sinus Skateboards
+            <img src="~/imgs/logos/sinus-logo-landscape -  small.png" />
+        </h1>
+    </header>
+    <nav>
+        <a href="/Index">Home</a>
+        <a href="/Privacy">
+            <span class="material-icons-outlined">
+                shopping_cart
+            </span>
+        </a>
+    </nav>
+    <section>
+        <main>
+            <article>
+                <img src="~/imgs/products/@Model.Product.Image" style="max-width:300px">
+                <h2>@Model.Product.Title</h2>
+                <p>@Model.Product.Description</p>
+                <p>@Model.Product.Color</p>
+                <p>$@Model.Product.Price</p>
+
+                <form method="post">
+                    <button class="brn btn-success" asp-route-Model.ProductId="@Model.Product.ProductId">Add to cart</button>
+                </form>
+            </article>
+        </main>
+        <aside>
+            <h4>Clothes</h4>
+            <a href="/T-shirts">T-shirts</a>
+            <a href="/Hoodies">Hoodies</a>
+            <a href="/Caps">Caps</a>
+
+            <h4>Skateboarding</h4>
+            <a href="/Boards">Boards</a>
+            <a href="/Wheels">Wheels</a>
+        </aside>
+    </section>
+    <section class="gallery">
+        @foreach (var product in Model.AlsoInThisColorProducts)
+        {
+            <article>
+                <img src="~/imgs/products/@product.Image">
+                <h2>@product.Title</h2>
+                <p>@product.Description</p>
+                <p>@product.Color</p>
+                <p>$@product.Price</p>
+
+                <form method="post">
+                    <button class="brn btn-success" asp-route-Model.ProductId="@Model.Product.ProductId">Add to cart</button>
+                </form>
+            </article>
+        }
+    </section>
+    <footer>
+        <article>
+            &copy; 2021 - Sinus Skateboards</p>
+            <a href="/About">About</a>
+        </article>
+    </footer>
+</div>
