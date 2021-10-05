@@ -1,15 +1,11 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using SinusSkateboards.Database;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace SinusSkateboards
 {
@@ -19,7 +15,7 @@ namespace SinusSkateboards
         {
 			var host = CreateHostBuilder(args).Build();
 
-			// Create admin user
+			//Create admin user
 			try
 			{
 				using (var scope = host.Services.CreateScope())

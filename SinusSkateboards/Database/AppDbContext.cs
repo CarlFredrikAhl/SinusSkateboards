@@ -14,9 +14,6 @@ namespace SinusSkateboards.Database
         public DbSet<Order> Orders { get; set; }
         public DbSet<Checkout> Checkouts { get; set; }
 
-        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
-        {
-
-        }
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
     }
 }

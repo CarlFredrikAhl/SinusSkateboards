@@ -1,11 +1,8 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.JSInterop;
 using Newtonsoft.Json;
 using SinusSkateboards.Database;
 using SinusSkateboards.Models;
@@ -36,15 +33,15 @@ namespace SinusSkateboards.Pages
             {
                 Products = new List<Product>()
                 {
-                    new Product("sinus-tshirt-blue.png", "T-shirt (blue)", "Blue skate t-shirt"
+                    new Product("sinus-tshirt-blue.png", "T-shirt (Blue)", "Blue skate t-shirt"
                     , "Blue", 15),
-                    new Product("sinus-tshirt-grey.png", "T-shirt (grey)", "Grey skate t-shirt"
+                    new Product("sinus-tshirt-grey.png", "T-shirt (Grey)", "Grey skate t-shirt"
                     , "Grey", 15),
-                    new Product("sinus-tshirt-pink.png", "T-shirt (pink)", "Pink skate t-shirt"
+                    new Product("sinus-tshirt-pink.png", "T-shirt (Pink)", "Pink skate t-shirt"
                     , "Pink", 15),
-                    new Product("sinus-tshirt-purple.png", "T-shirt (purple)", "Purple skate t-shirt"
+                    new Product("sinus-tshirt-purple.png", "T-shirt (Purple)", "Purple skate t-shirt"
                     , "Purple", 15),
-                    new Product("sinus-tshirt-yellow.png", "T-shirt (yellow)", "Yellow skate t-shirt"
+                    new Product("sinus-tshirt-yellow.png", "T-shirt (Yellow)", "Yellow skate t-shirt"
                     , "Yellow", 15),
                 };
 
@@ -80,8 +77,6 @@ namespace SinusSkateboards.Pages
             }
         }
 
-        //Method for adding item to the cart
-        //Didn't work naming it to "OnPostAddToCart" and using asp-page-handler="AddToCart"
         public IActionResult OnPost(int productId)
         {
             return RedirectToPage("/ChosenProduct", new { id = productId});

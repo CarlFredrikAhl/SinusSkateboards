@@ -1,7 +1,5 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using SinusSkateboards.Models;
@@ -53,7 +51,6 @@ namespace SinusSkateboards.Pages
             }
         }
 
-        //Go to the search page with searchString data
         public IActionResult OnPost(int productId)
         {
             return RedirectToPage("/ChosenProduct", new { id = productId });

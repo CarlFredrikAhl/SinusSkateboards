@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -63,8 +62,7 @@ namespace SinusSkateboards.Pages
             }
         }
 
-        //Method for adding item to the cart
-        //Didn't work naming it to "OnPostAddToCart" and using asp-page-handler="AddToCart"
+        //Add to cart
         public IActionResult OnPost(int productId)
         {
             //Clicked product
@@ -93,6 +91,5 @@ namespace SinusSkateboards.Pages
         {
             return RedirectToPage("/Search", new { search = SearchString });
         }
-
     }
 }

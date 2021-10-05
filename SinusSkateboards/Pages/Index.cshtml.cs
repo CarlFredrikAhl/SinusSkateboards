@@ -1,11 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.Extensions.Logging;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using SinusSkateboards.Database;
 using SinusSkateboards.Models;
 using Newtonsoft.Json;
 using Microsoft.AspNetCore.Http;
@@ -21,7 +16,7 @@ namespace SinusSkateboards.Pages
 
         public void OnGet()
         {
-            //Check how many items in cart (doesn't display right if you press back button, fix this later)
+            //Check how many items in cart (doesn't display right if you press back button, fix this later if I have time)
             ItemsInCart = 0;
 
             List<Product> cookieProducts = new List<Product>();
@@ -40,7 +35,6 @@ namespace SinusSkateboards.Pages
             }
         }
 
-        //Go to the search page with searchString data
         public IActionResult OnPost()
         {
             return RedirectToPage("/Search", new { search = SearchString});

@@ -1,7 +1,5 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -34,15 +32,15 @@ namespace SinusSkateboards.Pages
             {
                 Products = new List<Product>()
                 {
-                    new Product("hoodie-ash.png", "Hoodie (ash)", "Grey skate hoodie"
+                    new Product("hoodie-ash.png", "Hoodie (Ash)", "Grey skate hoodie"
                     , "Grey", 35),
-                    new Product("hoodie-fire.png", "Hoodie (fire)", "Red skate hoodie"
+                    new Product("hoodie-fire.png", "Hoodie (Fire)", "Red skate hoodie"
                     , "Red", 35),
-                    new Product("hoodie-green.png", "Hoodie (green)", "Green skate hoodie"
+                    new Product("hoodie-green.png", "Hoodie (Green)", "Green skate hoodie"
                     , "Green", 35),
-                    new Product("hoodie-ocean.png", "Hoodie (ocean)", "Blue skate hoodie"
+                    new Product("hoodie-ocean.png", "Hoodie (Ocean)", "Blue skate hoodie"
                     , "Blue", 35),
-                    new Product("hoodie-purple.png", "Hoodie (purple)", "Purple skate hoodie"
+                    new Product("hoodie-purple.png", "Hoodie (Purple)", "Purple skate hoodie"
                     , "Purple", 35),
                 };
 
@@ -77,8 +75,6 @@ namespace SinusSkateboards.Pages
             }
         }
 
-        //Method for adding item to the cart
-        //Didn't work naming it to "OnPostAddToCart" and using asp-page-handler="AddToCart"
         public IActionResult OnPost(int productId)
         {
             return RedirectToPage("/ChosenProduct", new { id = productId });

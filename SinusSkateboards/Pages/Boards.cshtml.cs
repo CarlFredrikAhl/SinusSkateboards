@@ -1,7 +1,5 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -34,28 +32,27 @@ namespace SinusSkateboards.Pages
             {
                 Products = new List<Product>()
                 {
-                    new Product("sinus-skateboard-eagle.png", "Skateboard (eagle)", "Board with eagle print"
+                    new Product("sinus-skateboard-eagle.png", "Skateboard (Eagle)", "Board with eagle print"
                     , "Black/White/Yellow", 80),
-                    new Product("sinus-skateboard-fire.png", "Skateboard (fire)", "Board with fire print"
+                    new Product("sinus-skateboard-fire.png", "Skateboard (Fire)", "Board with fire print"
                     , "Orange/Brown", 75),
                     new Product("sinus-skateboard-gretasfury.png", "Skateboard (Gretas fury)", 
                     "Skateboard with Greta Thunberg print", "Black/Brown", 90),
-                    new Product("sinus-skateboard-ink.png", "Skateboard (ink)", "Board with ink print"
+                    new Product("sinus-skateboard-ink.png", "Skateboard (Ink)", "Board with ink print"
                     , "Wood/Black", 65),
-                    new Product("sinus-skateboard-logo.png", "Skateboard (logo)"
+                    new Product("sinus-skateboard-logo.png", "Skateboard (Logo)"
                     , "Board with only our beautiful logo", "Wood", 60),
-                    new Product("sinus-skateboard-northern_lights.png", "Skateboard (northern lights)"
+                    new Product("sinus-skateboard-northern_lights.png", "Skateboard (Northern lights)"
                     , "Board with northen lights print", "Green/Blue/Black", 100),
-                    new Product("sinus-skateboard-plastic.png", "Skateboard (plastic)", "Board with plastic print"
+                    new Product("sinus-skateboard-plastic.png", "Skateboard (Plastic)", "Board with plastic print"
                     , "Mixed plastic colors", 60),
-                    new Product("sinus-skateboard-polar.png", "Skateboard (polar)", "Board with polar bear print"
+                    new Product("sinus-skateboard-polar.png", "Skateboard (Polar)", "Board with polar bear print"
                     , "Black/Wood", 75),
-                    new Product("sinus-skateboard-purple.png", "Skateboard (purple)", "Purple board"
+                    new Product("sinus-skateboard-purple.png", "Skateboard (Purple)", "Purple board"
                     , "Purple", 95),
-                    new Product("sinus-skateboard-yellow.png", "Skateboard (yellow)", "Yellow board"
+                    new Product("sinus-skateboard-yellow.png", "Skateboard (Yellow)", "Yellow board"
                     , "Yellow", 85),
                 };
-
 
                 foreach (var product in Products)
                 {
@@ -63,7 +60,6 @@ namespace SinusSkateboards.Pages
                 }
 
                 database.SaveChanges();
-            
             }
             else
             {
@@ -89,8 +85,6 @@ namespace SinusSkateboards.Pages
             }
         }
 
-        //Method for adding item to the cart
-        //Didn't work naming it to "OnPostAddToCart" and using asp-page-handler="AddToCart"
         public IActionResult OnPost(int productId)
         {
             return RedirectToPage("/ChosenProduct", new { id = productId });

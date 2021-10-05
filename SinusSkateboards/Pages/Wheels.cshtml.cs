@@ -1,7 +1,5 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -34,11 +32,11 @@ namespace SinusSkateboards.Pages
             {
                 Products = new List<Product>()
                 {
-                    new Product("sinus-wheel-rocket.png", "Wheel (rocket)", "Four rocket skate wheels"
+                    new Product("sinus-wheel-rocket.png", "Wheel (Rocket)", "Four rocket skate wheels"
                     , "White/Red", 20),
-                    new Product("sinus-wheel-spinner.png", "Wheel (spinner)", "Four white skate wheels"
+                    new Product("sinus-wheel-spinner.png", "Wheel (Spinner)", "Four white skate wheels"
                     , "White", 20),
-                    new Product("sinus-wheel-wave.png", "Wheel (wave)", "Four wave skate wheels"
+                    new Product("sinus-wheel-wave.png", "Wheel (Wave)", "Four wave skate wheels"
                     , "White/Black", 20),
                 };
 
@@ -74,8 +72,6 @@ namespace SinusSkateboards.Pages
             }
         }
 
-        //Method for adding item to the cart
-        //Didn't work naming it to "OnPostAddToCart" and using asp-page-handler="AddToCart"
         public IActionResult OnPost(int productId)
         {
             return RedirectToPage("/ChosenProduct", new { id = productId });
