@@ -18,7 +18,9 @@ namespace SinusSkateboards.Pages
         string productType;
 
         public Product Product { get; set; }
-        public List<Product> AlsoInThisColorProducts { get; set; } 
+        public List<Product> AlsoInThisColorProducts { get; set; }
+
+        public int ItemsInCart { get; set; }
 
         public ChosenProductModel(AppDbContext context)
         {
@@ -28,14 +30,34 @@ namespace SinusSkateboards.Pages
 
         public void OnGet(int id)
         {
+
             Product = new Product();
             AlsoInThisColorProducts = new List<Product>();
             Product = database.Products.Where(product => product.ProductId == id).FirstOrDefault();
 
-            productType = Product.Title.Split('(')[0];
+            productType = Product.Title.Split(' ')[0];
 
             AlsoInThisColorProducts = database.Products.Where(product => product.Title.Contains(productType)
             && product.Color != Product.Color).ToList();
+
+
+            //Check how many items in cart
+            ItemsInCart = 0;
+
+            List<Product> cookieProducts = new List<Product>();
+
+            string stringProducts = HttpContext.Session.GetString("cart_items");
+
+            //Cookie products exists in the cart already
+            if (stringProducts != null)
+            {
+                cookieProducts = JsonConvert.DeserializeObject<List<Product>>(stringProducts);
+            }
+
+            foreach (var product in cookieProducts)
+            {
+                ItemsInCart++;
+            }
         }
 
         //Method for adding item to the cart
@@ -62,7 +84,7 @@ namespace SinusSkateboards.Pages
 
             HttpContext.Session.SetString("cart_items", stringProducts);
 
-            return RedirectToPage("/ChosenProduct");
+            return RedirectToPage("/ChosenProduct", new { id = productId});
         }
     }
 }

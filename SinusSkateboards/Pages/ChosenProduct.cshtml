@@ -12,11 +12,24 @@
     </header>
     <nav>
         <a href="/Index">Home</a>
-        <a href="/Privacy">
-            <span class="material-icons-outlined">
-                shopping_cart
-            </span>
-        </a>
+        @if (Model.ItemsInCart > 0)
+        {
+            <a href="/Cart">
+                <span class="material-icons-outlined">
+                    shopping_cart
+                </span>
+            </a>
+
+        }
+        else
+        {
+            <a href="/Caps">
+                <span class="material-icons-outlined">
+                    shopping_cart
+                </span>
+            </a>
+        }
+        <p>(@Model.ItemsInCart)</p>
     </nav>
     <section>
         <main>
@@ -28,7 +41,7 @@
                 <p>$@Model.Product.Price</p>
 
                 <form method="post">
-                    <button class="brn btn-success" asp-route-Model.ProductId="@Model.Product.ProductId">Add to cart</button>
+                    <button class="brn btn-success" asp-route-productId="@Model.Product.ProductId">Add to cart</button>
                 </form>
 
                 <h2>Also exists in these colors:</h2>
@@ -43,7 +56,7 @@
                             <p>$@product.Price</p>
 
                             <form method="post">
-                                <button class="brn btn-success" asp-route-Model.ProductId="@Model.Product.ProductId">Add to cart</button>
+                                <button class="brn btn-success" asp-route-productId="@product.ProductId">Add to cart</button>
                             </form>
                         </article>
                     }
