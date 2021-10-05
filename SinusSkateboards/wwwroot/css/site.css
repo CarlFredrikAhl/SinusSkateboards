@@ -102,6 +102,9 @@ nav {
     gap: 2rem;
     align-items: center;
     margin-bottom: 1rem;
+    border: ridge;
+    border-color: grey;
+    border-width: 5px;
 }
 
 nav a {
@@ -139,6 +142,9 @@ section main article {
     padding: 1rem;
     margin-bottom: 1rem;
     text-align:center;
+    border:ridge;
+    border-color:grey;
+    border-width:5px;
 }
 
 /*section main article img {
@@ -157,7 +163,10 @@ section aside {
     align-items: center;
     grid-gap: 2rem;
     padding: 1rem 0;
-    margin-bottom:1rem;
+    margin-bottom: 1rem;
+    border: ridge;
+    border-color: grey;
+    border-width: 5px;
 }
 
 section.gallery {
