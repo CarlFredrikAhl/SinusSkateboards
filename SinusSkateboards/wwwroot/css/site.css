@@ -74,8 +74,9 @@ body {
 }
 
 .wrapper2 {
-    max-width:80% !important;
+    max-width: 80% !important;
     margin: 0 auto;
+    text-align: center;
 }
 
 header {
@@ -167,12 +168,14 @@ section.gallery {
 }
 
 section.gallery > article {
-    max-width: 220px;
+    max-width: 300px;
     min-height: 440px;
     width: 100%;
     background: #fff;
     box-shadow: 0 0 3rem rgba(0, 0, 0, .2);
     display: flex;
+    justify-content:center;
+    align-items:center;
     flex-direction: column;
 }
 
@@ -184,7 +187,7 @@ section.gallery > article .btn {
     margin-top: auto;
 }
 
-section.gallery > article h3, section.gallary > article p {
+section.gallery > article h3, section.gallery > article p {
     margin: 0;
     padding: 0 0.5rem;
 }

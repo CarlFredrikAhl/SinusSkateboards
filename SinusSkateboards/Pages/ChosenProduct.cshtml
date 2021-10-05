@@ -30,6 +30,24 @@
                 <form method="post">
                     <button class="brn btn-success" asp-route-Model.ProductId="@Model.Product.ProductId">Add to cart</button>
                 </form>
+
+                <h2>Also exists in these colors:</h2>
+                <section class="gallery">
+                    @foreach (var product in Model.AlsoInThisColorProducts)
+                    {
+                        <article>
+                            <img src="~/imgs/products/@product.Image">
+                            <h2>@product.Title</h2>
+                            <p>@product.Description</p>
+                            <p>@product.Color</p>
+                            <p>$@product.Price</p>
+
+                            <form method="post">
+                                <button class="brn btn-success" asp-route-Model.ProductId="@Model.Product.ProductId">Add to cart</button>
+                            </form>
+                        </article>
+                    }
+                </section>
             </article>
         </main>
         <aside>
@@ -43,22 +61,7 @@
             <a href="/Wheels">Wheels</a>
         </aside>
     </section>
-    <section class="gallery">
-        @foreach (var product in Model.AlsoInThisColorProducts)
-        {
-            <article>
-                <img src="~/imgs/products/@product.Image">
-                <h2>@product.Title</h2>
-                <p>@product.Description</p>
-                <p>@product.Color</p>
-                <p>$@product.Price</p>
 
-                <form method="post">
-                    <button class="brn btn-success" asp-route-Model.ProductId="@Model.Product.ProductId">Add to cart</button>
-                </form>
-            </article>
-        }
-    </section>
     <footer>
         <article>
             &copy; 2021 - Sinus Skateboards</p>
