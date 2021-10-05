@@ -19,6 +19,9 @@ namespace SinusSkateboards.Pages
         [BindProperty]
         public List<Product> Products { get; set; }
 
+        [BindProperty]
+        public string SearchString { get; set; }
+
         public int ItemsInCart { get; set; }
 
         public T_shirtsModel(AppDbContext context)
@@ -82,6 +85,11 @@ namespace SinusSkateboards.Pages
         public IActionResult OnPost(int productId)
         {
             return RedirectToPage("/ChosenProduct", new { id = productId});
+        }
+
+        public IActionResult OnPostSearch()
+        {
+            return RedirectToPage("/Search", new { search = SearchString });
         }
     }
 }

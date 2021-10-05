@@ -15,17 +15,20 @@ namespace SinusSkateboards.Pages
     {
         private readonly AppDbContext database;
 
-        string productType;
+        public string ProductType { get; set; }
 
         public Product Product { get; set; }
         public List<Product> AlsoInThisColorProducts { get; set; }
+
+        [BindProperty]
+        public string SearchString { get; set; }
 
         public int ItemsInCart { get; set; }
 
         public ChosenProductModel(AppDbContext context)
         {
             database = context;
-            productType = String.Empty;
+            ProductType = String.Empty;
         }
 
         public void OnGet(int id)
@@ -35,9 +38,9 @@ namespace SinusSkateboards.Pages
             AlsoInThisColorProducts = new List<Product>();
             Product = database.Products.Where(product => product.ProductId == id).FirstOrDefault();
 
-            productType = Product.Title.Split(' ')[0];
+            ProductType = Product.Title.Split(' ')[0];
 
-            AlsoInThisColorProducts = database.Products.Where(product => product.Title.Contains(productType)
+            AlsoInThisColorProducts = database.Products.Where(product => product.Title.Contains(ProductType)
             && product.Color != Product.Color).ToList();
 
 
@@ -86,5 +89,10 @@ namespace SinusSkateboards.Pages
 
             return RedirectToPage("/ChosenProduct", new { id = productId});
         }
+        public IActionResult OnPostSearch()
+        {
+            return RedirectToPage("/Search", new { search = SearchString });
+        }
+
     }
 }

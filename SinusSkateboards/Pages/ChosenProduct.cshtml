@@ -19,48 +19,87 @@
                     shopping_cart
                 </span>
             </a>
-
         }
         else
         {
-            <a href="/Caps">
+            <a href="/Index">
                 <span class="material-icons-outlined">
                     shopping_cart
                 </span>
             </a>
         }
         <p>(@Model.ItemsInCart)</p>
+        <form method="post">
+            <input id="search" type="search" style="width:400px" asp-for="@Model.SearchString" placeholder="Search product, ex: t-shirt or northern lights or blue" />
+            <input type="submit" asp-page-handler="Search" asp-route-searchString="@Model.SearchString" />
+        </form>
     </nav>
     <section>
         <main>
             <article>
-                <img src="~/imgs/products/@Model.Product.Image" style="max-width:300px">
-                <h2>@Model.Product.Title</h2>
-                <p>@Model.Product.Description</p>
-                <p>@Model.Product.Color</p>
-                <p>$@Model.Product.Price</p>
+                @if (Model.ProductType != "Skateboard")
+                {
+                    <img src="~/imgs/products/@Model.Product.Image" style="max-width:300px">
 
-                <form method="post">
-                    <button class="brn btn-success" asp-route-productId="@Model.Product.ProductId">Add to cart</button>
-                </form>
+                    <h2>@Model.Product.Title</h2>
+                    <p>@Model.Product.Description</p>
+                    <p>@Model.Product.Color</p>
+                    <p>$@Model.Product.Price</p>
 
-                <h2>Also exists in these colors:</h2>
-                <section class="gallery">
-                    @foreach (var product in Model.AlsoInThisColorProducts)
-                    {
-                        <article>
-                            <img src="~/imgs/products/@product.Image">
-                            <h2>@product.Title</h2>
-                            <p>@product.Description</p>
-                            <p>@product.Color</p>
-                            <p>$@product.Price</p>
+                    <form method="post">
+                        <button class="brn btn-success" asp-route-productId="@Model.Product.ProductId">Add to cart</button>
+                    </form>
 
-                            <form method="post">
-                                <button class="brn btn-success" asp-route-productId="@product.ProductId">Add to cart</button>
-                            </form>
-                        </article>
-                    }
-                </section>
+                    <h2>Also exists in these colors:</h2>
+                    <section class="gallery">
+                        @foreach (var product in Model.AlsoInThisColorProducts)
+                        {
+                            <article>
+                                <img src="~/imgs/products/@product.Image">
+                                <h2>@product.Title</h2>
+                                <p>@product.Description</p>
+                                <p>@product.Color</p>
+                                <p>$@product.Price</p>
+
+                                <form method="post">
+                                    <button class="brn btn-success" asp-route-productId="@product.ProductId">Add to cart</button>
+                                </form>
+                            </article>
+                        }
+                    </section>
+
+                }
+                else
+                {
+                    <img src="~/imgs/products/@Model.Product.Image" style="max-width:200px">
+
+                    <h2>@Model.Product.Title</h2>
+                    <p>@Model.Product.Description</p>
+                    <p>@Model.Product.Color</p>
+                    <p>$@Model.Product.Price</p>
+
+                    <form method="post">
+                        <button class="brn btn-success" asp-route-productId="@Model.Product.ProductId">Add to cart</button>
+                    </form>
+
+                    <h2>Also exists in these colors:</h2>
+                    <section class="gallery2">
+                        @foreach (var product in Model.AlsoInThisColorProducts)
+                        {
+                            <article>
+                                <img src="~/imgs/products/@product.Image">
+                                <h5>@product.Title.Split("Skateboard")[1]</h5>
+                                <p>@product.Description</p>
+                                <p>@product.Color</p>
+                                <p>$@product.Price</p>
+
+                                <form method="post">
+                                    <button class="brn btn-success" asp-route-productId="@product.ProductId">Add to cart</button>
+                                </form>
+                            </article>
+                        }
+                    </section>
+                }
             </article>
         </main>
         <aside>

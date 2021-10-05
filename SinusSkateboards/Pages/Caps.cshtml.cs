@@ -19,6 +19,9 @@ namespace SinusSkateboards.Pages
 
         public int ItemsInCart { get; set; }
 
+        [BindProperty]
+        public string SearchString { get; set; }
+
         public CapsModel(AppDbContext context)
         {
             database = context;
@@ -78,27 +81,12 @@ namespace SinusSkateboards.Pages
         //Didn't work naming it to "OnPostAddToCart" and using asp-page-handler="AddToCart"
         public IActionResult OnPost(int productId)
         {
-            //Clicked product
-            var product = database.Products.Where(product => product.ProductId == productId).FirstOrDefault();
+            return RedirectToPage("/ChosenProduct", new { id = productId });
+        }
 
-            //Save to session cookie
-            List<Product> cookieProducts = new List<Product>();
-
-            string stringProducts = HttpContext.Session.GetString("cart_items");
-
-            //Cookie products exists in the cart already
-            if (stringProducts != null)
-            {
-                cookieProducts = JsonConvert.DeserializeObject<List<Product>>(stringProducts);
-            }
-
-            cookieProducts.Add(product);
-
-            stringProducts = JsonConvert.SerializeObject(cookieProducts);
-
-            HttpContext.Session.SetString("cart_items", stringProducts);
-
-            return RedirectToPage("/Caps");
+        public IActionResult OnPostSearch()
+        {
+            return RedirectToPage("/Search", new { search = SearchString });
         }
     }
 }

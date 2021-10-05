@@ -21,6 +21,9 @@ namespace SinusSkateboards.Pages
 
         public List<Product> DistinctProducts { get; set; }
 
+        [BindProperty]
+        public string SearchString { get; set; }
+
         public List<string> DistinctTitles { get; set; }
 
         public Dictionary<int, int> ProductIdCount { get; set; }
@@ -129,6 +132,11 @@ namespace SinusSkateboards.Pages
                 //Try to change this to the previous page if I have time
                 return RedirectToPage("/Index");
             }
+        }
+
+        public IActionResult OnPostSearch()
+        {
+            return RedirectToPage("/Search", new { search = SearchString });
         }
     }
 }

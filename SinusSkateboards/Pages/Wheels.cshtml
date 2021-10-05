@@ -23,13 +23,17 @@
         }
         else
         {
-            <a href="/Caps">
+            <a href="/Boards">
                 <span class="material-icons-outlined">
                     shopping_cart
                 </span>
             </a>
         }
         <p>(@Model.ItemsInCart)</p>
+        <form method="post">
+            <input id="search" type="search" style="width:400px" asp-for="@Model.SearchString" placeholder="Search product, ex: t-shirt or northern lights or blue" />
+            <input type="submit" asp-page-handler="Search" asp-route-searchString="@Model.SearchString" />
+        </form>
     </nav>
     <section>
         <main>
@@ -43,7 +47,7 @@
                     <p>$@product.Price</p>
 
                     <form method="post">
-                        <button class="brn btn-success" asp-route-productId="@product.ProductId">Add to cart</button>
+                        <button class="brn btn-success" asp-route-productId="@product.ProductId">Go to product</button>
                     </form>
                 </article>
             }

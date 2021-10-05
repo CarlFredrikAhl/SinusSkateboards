@@ -187,6 +187,35 @@ section.gallery > article .btn {
     margin-top: auto;
 }
 
+section.gallery2 {
+    justify-content: center;
+    align-items: center;
+    padding: 4rem 0;
+    gap: 1rem;
+}
+
+section.gallery2 > article {
+    max-width: 120px;
+    height: 650px;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 0 3rem rgba(0, 0, 0, .2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom:10px;
+}
+
+section.gallery2 > article img {
+    width: 100%;
+}
+
+section.gallery2 > article .btn {
+    margin-bottom: auto;
+}
+
+
 section.gallery > article h3, section.gallery > article p {
     margin: 0;
     padding: 0 0.5rem;

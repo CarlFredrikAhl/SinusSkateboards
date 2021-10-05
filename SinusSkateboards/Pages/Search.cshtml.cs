@@ -54,9 +54,14 @@ namespace SinusSkateboards.Pages
         }
 
         //Go to the search page with searchString data
-        public IActionResult OnPost()
+        public IActionResult OnPost(int productId)
         {
-            return RedirectToPage("/Search", new { search = SearchString });
+            return RedirectToPage("/ChosenProduct", new { id = productId });
+        }
+
+        public IActionResult OnPostSearch()
+        {
+            return RedirectToPage("/Search", new { search = SearchString});
         }
     }
 }
