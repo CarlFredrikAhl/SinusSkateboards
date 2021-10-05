@@ -20,19 +20,24 @@
     </nav>
     <section>
         <main>
-            <h1>Purchase successful!</h1>
             <article>
+                <h1>Purchase successful!</h1>
                 <p>First name: @Model.Checkout.FirstName</p>
                 <p>Last name: @Model.Checkout.LastName</p>
                 <p>Email address: @Model.Checkout.EmailAddress</p>
                 <p>Phone number: @Model.Checkout.PhoneNumber</p>
                 <p>¨Delivery address: @Model.Checkout.DeliveryAddress</p>
                 <p>"Order number: @Model.Order.OrderNumber"</p>
+                <p>Total price: $@Model.Cart.TotalPrice</p>
 
                 @foreach (var product in Model.Order.Products)
                 {
                     <p>@product.Title</p>
                 }
+
+                <form method="post">
+                    <button class="brn btn-succes" asp-page="/Index">Home</button>
+                </form>
             </article>
         </main>
         <aside>

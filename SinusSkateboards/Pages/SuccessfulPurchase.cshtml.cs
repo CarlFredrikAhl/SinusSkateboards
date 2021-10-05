@@ -29,8 +29,9 @@ namespace SinusSkateboards.Pages
 
         public void OnGet(int checkoutId)
         {
-            //Get cookie products from cart
+            Cart = new Cart();
             Cart.Products = new List<Product>();
+            //Get cookie products from cart
 
             List<Product> cookieProducts = new List<Product>();
 
@@ -44,11 +45,12 @@ namespace SinusSkateboards.Pages
 
             Cart.Products = cookieProducts.ToList();
 
+            Checkout = database.Checkouts.Where(checkout => checkout.CheckoutId == checkoutId).FirstOrDefault();
+
             //Save order to database
             Order = new Order(Checkout.CheckoutId, Cart.Products, DateTime.Now);
             database.Orders.Add(Order);
-
-            Checkout = database.Checkouts.Where(checkout => checkout.CheckoutId == checkoutId).FirstOrDefault();
+            database.SaveChanges();
         }
     }
 }
