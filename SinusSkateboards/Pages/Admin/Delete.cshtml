@@ -1,61 +1,77 @@
 ﻿@page
 @model SinusSkateboards.Pages.DeleteModel
 
-@{
-    Layout = null;
-}
+<div class="wrapper2">
+    <header>
+        <h1>
+            Sinus Skateboards
+            <img src="~/imgs/logos/sinus-logo-landscape -  small.png" />
+        </h1>
+    </header>
+    <section>
+        <main>
+            <article>
+                <h3>Are you sure you want to delete this?</h3>
+                <div>
+                    <h4>Product</h4>
+                    <hr />
+                    <dl class="row">
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Product.Image)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.Product.Image)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Product.Title)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.Product.Title)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Product.Description)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.Product.Description)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Product.Color)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.Product.Color)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Product.Price)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.Product.Price)
+                        </dd>
+                    </dl>
 
-<!DOCTYPE html>
+                    <form method="post">
+                        <input type="hidden" asp-for="Product.ProductId" />
+                        <input type="submit" value="Delete" class="btn btn-danger" /> |
+                        <a asp-page="./Index">Back to List</a>
+                    </form>
+                </div>
+            </article>
+        </main>
+        <aside>
+            <h4>Clothes</h4>
+            <a href="/T-shirts">T-shirts</a>
+            <a href="/Hoodies">Hoodies</a>
+            <a href="/Caps">Caps</a>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Delete</title>
-</head>
-<body>
+            <h4>Skateboarding</h4>
+            <a href="/Boards">Boards</a>
+            <a href="/Wheels">Wheels</a>
+        </aside>
+    </section>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Product</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Product.Image)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Product.Image)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Product.Title)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Product.Title)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Product.Description)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Product.Description)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Product.Color)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Product.Color)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Product.Price)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Product.Price)
-        </dd>
-    </dl>
-    
-    <form method="post">
-        <input type="hidden" asp-for="Product.ProductId" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-page="./Index">Back to List</a>
-    </form>
+    <footer>
+        <article>
+            &copy; 2021 - Sinus Skateboards</p>
+            <a href="/About">About</a>
+        </article>
+    </footer>
 </div>
-</body>
-</html>
