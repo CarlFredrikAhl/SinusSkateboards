@@ -47,7 +47,8 @@
                     <p>$@Model.Product.Price</p>
 
                     <form method="post">
-                        <button class="brn btn-success" asp-route-productId="@Model.Product.ProductId">Add to cart</button>
+                        <button class="brn btn-success" asp-page-handler="AddToCart" asp-route-productId="@Model.Product.ProductId">
+                        Add to cart</button>
                     </form>
 
                     <h2>Also exists in these colors:</h2>
@@ -62,7 +63,7 @@
                                 <p>$@product.Price</p>
 
                                 <form method="post">
-                                    <button class="brn btn-success" asp-route-productId="@product.ProductId">Add to cart</button>
+                                    <button class="brn btn-success" asp-route-productId="@product.ProductId">Go to product</button>
                                 </form>
                             </article>
                         }
@@ -79,7 +80,8 @@
                     <p>$@Model.Product.Price</p>
 
                     <form method="post">
-                        <button class="brn btn-success" asp-route-productId="@Model.Product.ProductId">Add to cart</button>
+                        <button class="brn btn-success" asp-page-handler="AddToCart" asp-route-productId="@Model.Product.ProductId"
+                                >Add to cart</button>
                     </form>
 
                     <h2>Also exists in these colors:</h2>
@@ -94,7 +96,7 @@
                                 <p>$@product.Price</p>
 
                                 <form method="post">
-                                    <button class="brn btn-success" asp-route-productId="@product.ProductId">Add to cart</button>
+                                    <button class="brn btn-success" asp-route-productId="@product.ProductId">Go to product</button>
                                 </form>
                             </article>
                         }

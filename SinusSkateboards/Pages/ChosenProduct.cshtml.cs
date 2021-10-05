@@ -62,8 +62,14 @@ namespace SinusSkateboards.Pages
             }
         }
 
-        //Add to cart
+        //Go to product
         public IActionResult OnPost(int productId)
+        {
+            return RedirectToPage("/ChosenProduct", new { id = productId });
+        }
+
+        //Add to cart
+        public IActionResult OnPostAddToCart(int productId)
         {
             //Clicked product
             var product = database.Products.Where(product => product.ProductId == productId).FirstOrDefault();
@@ -87,6 +93,7 @@ namespace SinusSkateboards.Pages
 
             return RedirectToPage("/ChosenProduct", new { id = productId});
         }
+
         public IActionResult OnPostSearch()
         {
             return RedirectToPage("/Search", new { search = SearchString });
