@@ -12,10 +12,6 @@
     </header>
     <nav>
         <a href="/Index">Home</a>
-        <form method="post">
-            <input id="search" type="search" style="width:400px" asp-for="@Model.SearchString" placeholder="Search product, ex: t-shirt or northern lights or blue" />
-            <input type="submit" asp-route-searchString="@Model.SearchString" />
-        </form>
     </nav>
     <section>
         <main>
@@ -35,7 +31,6 @@
                                 <p>$@product.Price</p>
 
                                 <form method="post">
-                                    <p>Product Id: @product.ProductId</p>
                                     <button class="brn btn-danger" asp-page-handler="Delete" asp-route-productId="@product.ProductId">Delete from cart</button>
                                 </form>
                             </article>
