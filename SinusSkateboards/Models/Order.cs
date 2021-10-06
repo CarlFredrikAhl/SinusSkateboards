@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Text;
 
 namespace SinusSkateboards.Models
 {
@@ -20,9 +21,17 @@ namespace SinusSkateboards.Models
             CheckoutId = checkoutId;
             Products = products;
             Date = date;
-            OrderNumber = checkoutId + new Random().Next(0, 100) + new Random().Next(0, 100)
-                + new Random().Next(0, 100) + new Random().Next(0, 100) + new Random().Next(0, 100)
-                + new Random().Next(0, 100) + new Random().Next(0, 100) + new Random().Next(0, 100);
+
+            StringBuilder sb = new StringBuilder();
+            sb.Append(checkoutId);
+
+            for (int i = 0; i < 7; i++)
+            {
+                int randomNr = new Random().Next(0, 10);
+                sb.Append(randomNr);
+            }
+
+            OrderNumber = int.Parse(sb.ToString());
         }
     }
 }
