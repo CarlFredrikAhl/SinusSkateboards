@@ -53,7 +53,7 @@ namespace SinusSkateboards.Pages
                 await _context.SaveChangesAsync();
             }
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("/Admin/Crud");
         }
     }
 }

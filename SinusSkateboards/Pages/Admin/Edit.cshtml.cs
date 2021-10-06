@@ -16,13 +16,13 @@ namespace SinusSkateboards.Pages
 {
     public class EditModel : PageModel
     {
-        private readonly SinusSkateboards.Database.AppDbContext _context;
+        private readonly SinusSkateboards.Database.AppDbContext database;
         private readonly IWebHostEnvironment webHostEnvironment;
 
         public EditModel(SinusSkateboards.Database.AppDbContext context,
             IWebHostEnvironment webHostEnvironment)
         {
-            _context = context;
+            database = context;
             this.webHostEnvironment = webHostEnvironment;
         }
 
@@ -39,7 +39,7 @@ namespace SinusSkateboards.Pages
                 return NotFound();
             }
 
-            Product = await _context.Products.FirstOrDefaultAsync(m => m.ProductId == id);
+            Product = await database.Products.FirstOrDefaultAsync(m => m.ProductId == id);
 
             if (Product == null)
             {
@@ -78,13 +78,18 @@ namespace SinusSkateboards.Pages
                 }
 
                 Product.Image = uniqueFileName;
+            
+            } else
+            {
+                Product.Image = database.Products.Where(product => product.ProductId == Product.ProductId)
+                    .Select(product => product.Image).FirstOrDefault();
             }
 
-            _context.Attach(Product).State = EntityState.Modified;
+            database.Attach(Product).State = EntityState.Modified;
 
             try
             {
-                await _context.SaveChangesAsync();
+                await database.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -98,12 +103,12 @@ namespace SinusSkateboards.Pages
                 }
             }
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("/Admin/Crud");
         }
 
         private bool ProductExists(int id)
         {
-            return _context.Products.Any(e => e.ProductId == id);
+            return database.Products.Any(e => e.ProductId == id);
         }
     }
 }
