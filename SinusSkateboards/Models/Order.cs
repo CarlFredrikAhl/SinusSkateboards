@@ -31,6 +31,7 @@ namespace SinusSkateboards.Models
                 sb.Append(randomNr);
             }
 
+            //Unique because of checkoutId
             OrderNumber = int.Parse(sb.ToString());
         }
     }
