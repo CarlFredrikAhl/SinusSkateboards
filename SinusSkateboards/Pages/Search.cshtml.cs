@@ -30,7 +30,10 @@ namespace SinusSkateboards.Pages
             SearchString = search;
 
             Products = new List<Product>();
-            Products = database.Products.Where(product => product.Title.ToUpper().Contains(search.ToUpper())).ToList();
+
+            //Search title or color
+            Products = database.Products.Where(product => product.Title.ToUpper().Contains(search.ToUpper())
+            || product.Color.ToUpper().Contains(search)).ToList();
 
             //Check how many items in cart
             ItemsInCart = 0;
