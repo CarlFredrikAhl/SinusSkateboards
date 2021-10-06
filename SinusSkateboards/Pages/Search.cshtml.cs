@@ -32,8 +32,9 @@ namespace SinusSkateboards.Pages
             Products = new List<Product>();
 
             //Search title or color
+            //Exists in database and is not bought
             Products = database.Products.Where(product => product.Title.ToUpper().Contains(search.ToUpper())
-            || product.Color.ToUpper().Contains(search)).ToList();
+            || product.Color.ToUpper().Contains(search)).Where(product => product.OrderId == null).ToList();
 
             //Check how many items in cart
             ItemsInCart = 0;

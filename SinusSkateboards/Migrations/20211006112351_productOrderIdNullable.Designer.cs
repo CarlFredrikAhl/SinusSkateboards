@@ -10,8 +10,8 @@ using SinusSkateboards.Database;
 namespace SinusSkateboards.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20211005080707_addedEmtpyOrderConstructor")]
-    partial class addedEmtpyOrderConstructor
+    [Migration("20211006112351_productOrderIdNullable")]
+    partial class productOrderIdNullable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

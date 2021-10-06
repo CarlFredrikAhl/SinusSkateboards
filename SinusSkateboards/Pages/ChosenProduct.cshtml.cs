@@ -72,7 +72,7 @@ namespace SinusSkateboards.Pages
         public IActionResult OnPostAddToCart(int productId)
         {
             //Clicked product
-            var product = database.Products.Where(product => product.ProductId == productId).FirstOrDefault();
+            var product = database.Products.Where(product => product.ProductId == productId && product.OrderId == null).FirstOrDefault();
 
             //Save to session cookie
             List<Product> cookieProducts = new List<Product>();

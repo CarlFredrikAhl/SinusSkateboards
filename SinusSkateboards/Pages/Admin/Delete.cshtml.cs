@@ -29,7 +29,7 @@ namespace SinusSkateboards.Pages
                 return NotFound();
             }
 
-            Product = await _context.Products.FirstOrDefaultAsync(m => m.ProductId == id);
+            Product = await _context.Products.FirstOrDefaultAsync(m => m.ProductId == id && m.OrderId == null);
 
             if (Product == null)
             {

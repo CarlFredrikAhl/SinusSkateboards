@@ -4,6 +4,7 @@ using System.Linq;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using SinusSkateboards.Database;
 using SinusSkateboards.Models;
@@ -49,8 +50,26 @@ namespace SinusSkateboards.Pages
 
             //Save order to database
             Order = new Order(Checkout.CheckoutId, Cart.Products, DateTime.Now);
+
+            foreach(var product in Order.Products)
+            {
+                product.ProductId = 0;
+            }
+
             database.Orders.Add(Order);
             database.SaveChanges();
+
+            //database.Database.OpenConnection();
+            //try
+            //{
+            //    database.Database.ExecuteSqlRaw("SET IDENTITY_INSERT dbo.Products ON;");
+            //    database.SaveChanges();
+            //    database.Database.ExecuteSqlRaw("SET IDENTITY_INSERT dbo.Products OFF;");
+            //}
+            //finally
+            //{
+            //    database.Database.CloseConnection();
+            //}
         }
     }
 }

@@ -63,7 +63,8 @@ namespace SinusSkateboards.Pages
             }
             else
             {
-                Products = database.Products.Where(product => product.Title.Contains("Skateboard")).ToList();
+                //Exist in database and is not bought
+                Products = database.Products.Where(product => product.Title.Contains("Skateboard") && product.OrderId == null).ToList();
             }
 
             //Check how many items in cart

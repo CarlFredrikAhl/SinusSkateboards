@@ -3,10 +3,11 @@ using System.ComponentModel.DataAnnotations;
 
 namespace SinusSkateboards.Models
 {
-    public class Product : IEquatable<Product>
+    public class Product
     {
         [Key]
         public int ProductId { get; set; } //Primary key
+        public int? OrderId { get; set; } //Foreign key
         public string Image { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
@@ -23,15 +24,6 @@ namespace SinusSkateboards.Models
             Description = desc;
             Color = color;
             Price = price;
-        }
-
-        public bool Equals(Product other)
-        {
-            return Title.Equals(other.Title);
-        }
-        public int GetHashCode(Product product)
-        {
-            return (product.Title).GetHashCode();
         }
     }
 }

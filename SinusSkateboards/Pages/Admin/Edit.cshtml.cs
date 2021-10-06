@@ -81,7 +81,7 @@ namespace SinusSkateboards.Pages
             
             } else
             {
-                Product.Image = database.Products.Where(product => product.ProductId == Product.ProductId)
+                Product.Image = database.Products.Where(product => product.ProductId == Product.ProductId && product.OrderId == null)
                     .Select(product => product.Image).FirstOrDefault();
             }
 

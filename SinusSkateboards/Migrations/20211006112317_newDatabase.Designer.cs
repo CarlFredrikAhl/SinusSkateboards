@@ -10,8 +10,8 @@ using SinusSkateboards.Database;
 namespace SinusSkateboards.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20211005081819_ordernumberBigger")]
-    partial class ordernumberBigger
+    [Migration("20211006112317_newDatabase")]
+    partial class newDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -284,7 +284,7 @@ namespace SinusSkateboards.Migrations
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("OrderId")
+                    b.Property<int>("OrderId")
                         .HasColumnType("int");
 
                     b.Property<int>("Price")
@@ -355,7 +355,9 @@ namespace SinusSkateboards.Migrations
                 {
                     b.HasOne("SinusSkateboards.Models.Order", null)
                         .WithMany("Products")
-                        .HasForeignKey("OrderId");
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("SinusSkateboards.Models.Order", b =>

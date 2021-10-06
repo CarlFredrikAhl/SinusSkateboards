@@ -63,7 +63,7 @@ namespace SinusSkateboards.Pages
 
             foreach(var title in DistinctTitles)
             {
-                DistinctProducts.Add(database.Products.Where(product => product.Title == title).FirstOrDefault());
+                DistinctProducts.Add(database.Products.Where(product => product.Title == title && product.OrderId == null).FirstOrDefault());
             }
 
             //Algorithm to know the quantity of all products
