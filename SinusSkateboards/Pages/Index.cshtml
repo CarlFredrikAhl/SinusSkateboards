@@ -32,7 +32,7 @@
         <p>(@Model.ItemsInCart)</p>
         <form method="post">
             <input id="search" type="search" style="width:400px" asp-for="@Model.SearchString" placeholder="Search product, ex: t-shirt or northern lights or blue" />
-            <input type="submit" asp-route-searchString="@Model.SearchString" />
+            <input type="submit" asp-route-searchString="@Model.SearchString" value="Search"/>
         </form>
     </nav>
     <section>
