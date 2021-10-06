@@ -59,17 +59,13 @@ namespace SinusSkateboards.Pages
             database.Orders.Add(Order);
             database.SaveChanges();
 
-            //database.Database.OpenConnection();
-            //try
-            //{
-            //    database.Database.ExecuteSqlRaw("SET IDENTITY_INSERT dbo.Products ON;");
-            //    database.SaveChanges();
-            //    database.Database.ExecuteSqlRaw("SET IDENTITY_INSERT dbo.Products OFF;");
-            //}
-            //finally
-            //{
-            //    database.Database.CloseConnection();
-            //}
+            //Remove products from cart
+
+            cookieProducts.RemoveRange(0, cookieProducts.Count);
+
+            stringProducts = JsonConvert.SerializeObject(cookieProducts);
+
+            HttpContext.Session.SetString("cart_items", stringProducts);
         }
     }
 }

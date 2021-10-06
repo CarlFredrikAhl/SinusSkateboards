@@ -1,0 +1,49 @@
+﻿@page
+@model SinusSkateboards.Pages.OrdersModel
+@{
+}
+
+<div class="wrapper2">
+    <header>
+        <h1>
+            Sinus Skateboards
+            <img src="~/imgs/logos/sinus-logo-landscape -  small.png" />
+        </h1>
+    </header>
+    <section>
+        <main>
+            @foreach (var order in Model.Orders)
+            {
+            <article>
+                <p>First name: @Model.GetCustomerData(order).FirstName</p>
+                <p>Last name: @Model.GetCustomerData(order).LastName</p>
+                <p>Email address: @Model.GetCustomerData(order).EmailAddress</p>
+                <p>Phone number: @Model.GetCustomerData(order).PhoneNumber</p>
+                <p>Delivery address: @Model.GetCustomerData(order).DeliveryAddress</p>
+                <p>Order number: @order.OrderNumber</p>
+                <p>Products:</p>
+                @foreach (var product in order.Products)
+                {
+                    <p>@product.Title</p>
+                }                            
+            </article>
+            }
+        </main>
+        <aside>
+            <h4>Clothes</h4>
+            <a href="/T-shirts">T-shirts</a>
+            <a href="/Hoodies">Hoodies</a>
+            <a href="/Caps">Caps</a>
+
+            <h4>Skateboarding</h4>
+            <a href="/Boards">Boards</a>
+            <a href="/Wheels">Wheels</a>
+        </aside>
+    </section>
+    <footer>
+        <article>
+            &copy; 2021 - Sinus Skateboards</p>
+            <a href="/About">About</a>
+        </article>
+    </footer>
+</div>

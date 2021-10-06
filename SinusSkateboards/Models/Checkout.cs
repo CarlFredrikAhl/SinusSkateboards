@@ -6,7 +6,6 @@ namespace SinusSkateboards.Models
     {
         [Key]
         public int CheckoutId { get; set; } //Primary key
-        public int OrderId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string EmailAddress { get; set; }
